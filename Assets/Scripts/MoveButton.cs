@@ -12,20 +12,11 @@ public class MoveButton : MonoBehaviour
     [SerializeField] buttonTypes buttonType;
 
     GameObject UIElement;
-    Transform UISize;
 
     Vector2 originalUISize;
     Vector3 originalButtonSize;
 
     [HideInInspector] public bool hasRun;
-
-    private void Awake()
-    {
-        UIElement = GameObject.FindObjectOfType<Canvas>().gameObject;
-        UISize = UIElement.transform.GetChild(0).transform;
-
-        originalButtonSize = this.transform.localScale;
-    }
 
     private void Start()
     {
@@ -45,7 +36,7 @@ public class MoveButton : MonoBehaviour
 
     private void HasInteracted(string name)
     {
-        if (this.transform.name == name && !UIElement.activeInHierarchy)
+        if (this.transform.name == name)
         {
             switch ((int)buttonType + 1)
             {
