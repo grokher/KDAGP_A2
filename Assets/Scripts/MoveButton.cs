@@ -55,8 +55,9 @@ public class MoveButton : MonoBehaviour
         {
             SetUI(true);
         }
-        nextareaInfo.nextArea.SetActive(true);
         this.transform.parent.gameObject.SetActive(false);
+        nextareaInfo.nextArea.SetActive(true);
+        
 
         RenderSettings.skybox = nextareaInfo.SkyBox;
     }
@@ -67,11 +68,11 @@ public class MoveButton : MonoBehaviour
         {
             SetUI(true);
         }
-        Debug.Log(previousareaInfo.previousArea.name);
-        previousareaInfo.previousArea.SetActive(true);
         this.transform.parent.gameObject.SetActive(false);
+        previousareaInfo.previousArea.SetActive(true);
+        
 
-        RenderSettings.skybox = previousareaInfo.Skybox;
+        RenderSettings.skybox = previousareaInfo.skybox2;
     }
 
     [System.Serializable]
@@ -87,7 +88,7 @@ public class MoveButton : MonoBehaviour
     public struct PreviousArea
     {
         public GameObject previousArea;
-        public Material Skybox;
+        public Material skybox2;
     }
     [Space, SerializeField] PreviousArea previousareaInfo;
 }
