@@ -1905,4 +1905,4 @@ MonoBehaviour:
   password: {fileID: 2100496848}
   errorMessages: {fileID: 1000703208}
   loginButton: {fileID: 2042325629}
-  url: http://www.mediaenvormgeving.nl/stamgroepa2
+  url: http://www.mediaenvormgeving.nl/stamgroepa2/
