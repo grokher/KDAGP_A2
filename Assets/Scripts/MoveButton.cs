@@ -49,7 +49,7 @@ public class MoveButton : MonoBehaviour
             }
         }
     }
-    private void MoveToNextArea()
+    public  void MoveToNextArea()
     {
         if (nextareaInfo.nextArea.GetComponentInChildren<MoveButton>().hasRun != true)
         {
@@ -62,7 +62,7 @@ public class MoveButton : MonoBehaviour
         RenderSettings.skybox = nextareaInfo.SkyBox;
     }
 
-    private void MoveToPreviousArea()
+    public  void MoveToPreviousArea()
     {
         if (previousareaInfo.previousArea.GetComponentInChildren<MoveButton>().hasRun != true)
         {
