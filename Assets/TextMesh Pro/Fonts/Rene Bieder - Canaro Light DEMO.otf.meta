@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 9fa79e5cf606cea42a699c37c517f31c
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Canaro
+  fontNames:
+  - Canaro
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 7cf3e7bc10512ab4797fc4ba38a9144a, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
