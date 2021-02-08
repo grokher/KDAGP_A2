@@ -32,7 +32,7 @@ public class DetectMouse : MonoBehaviour
 
         if(loadingAmount == loadingBar.maxValue)
         {
-            popUpWindow.SetActive(true);
+            popUpWindow.GetComponent<Animator>().SetBool("open", true);
         }
         else if(keepOpen == false)
         {

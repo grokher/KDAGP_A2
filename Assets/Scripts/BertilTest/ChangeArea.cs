@@ -37,13 +37,14 @@ public class ChangeArea : MonoBehaviour
 
     void LastArea()
     {
+        Debug.Log(currentArea);
         RenderSettings.skybox = skyboxes[currentArea];
 
         currentArea--;
 
         if (currentArea < 0)
         {
-            currentArea = skyboxes.Length;
+            currentArea = skyboxes.Length -1;
         }
     }
 }
