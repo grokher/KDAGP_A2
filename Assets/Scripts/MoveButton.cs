@@ -5,69 +5,17 @@ using UnityEngine.UI;
 
 public class MoveButton : MonoBehaviour
 {
-<<<<<<< Updated upstream
-    enum buttonTypes
-    {
-        moveToNextArea,
-        moveToPreviousArea
-    }
-    [SerializeField] buttonTypes buttonType;
-=======
     string text;
->>>>>>> Stashed changes
 
-    GameObject UIElement;
+    public Material[] mySkyBoxMaterial;
 
-    Vector2 originalUISize;
-    Vector3 originalButtonSize;
+    int currentSkyBox;
 
-    [HideInInspector] public bool hasRun;
-
-<<<<<<< Updated upstream
-    private void Start()
+    bool buttonClick = false;
+    private void Update()
     {
-        transform.LookAt(Camera.main.transform);
-        Raycasting.current.interactionTriggerd += HasInteracted;
-
-        SetUI(false);
-        hasRun = true;
+        Debug.Log(currentSkyBox);
     }
-    private void SetUI(bool status)
-    {
-        if (UIElement != null)
-        {
-            UIElement.SetActive(status);
-        }
-    }
-
-    private void HasInteracted(string name)
-    {
-        if (this.transform.name == name)
-        {
-            switch ((int)buttonType + 1)
-            {
-                case 1:
-                    MoveToNextArea();
-                    break;
-                case 2:
-                    MoveToPreviousArea();
-                    break;
-            }
-        }
-    }
-    public  void MoveToNextArea()
-    {
-        if (nextareaInfo.nextArea.GetComponentInChildren<MoveButton>().hasRun != true)
-        {
-            SetUI(true);
-        }
-        this.transform.parent.gameObject.SetActive(false);
-        nextareaInfo.nextArea.SetActive(true);
-        
-
-        RenderSettings.skybox = nextareaInfo.SkyBox;
-    }
-=======
     public void moveToNextArea()
     {
         switch (currentSkyBox + 1)
@@ -100,11 +48,49 @@ public class MoveButton : MonoBehaviour
                 RenderSettings.skybox = mySkyBoxMaterial[6];
                 currentSkyBox = -1;
                 break;
-            
+
         }
-        
-     }
-    
+
+    }
+    /*public void moveToPreviousArea()
+    {
+        switch (currentSkyBox + 1)
+        {
+            case 0:
+                RenderSettings.skybox = mySkyBoxMaterial[0];
+                
+                break;
+            case 1:
+                currentSkyBox--;
+                RenderSettings.skybox = mySkyBoxMaterial[0];
+                
+                break;
+            case 2:
+                RenderSettings.skybox = mySkyBoxMaterial[1];
+                currentSkyBox--;
+                break;
+            case 3:
+                RenderSettings.skybox = mySkyBoxMaterial[2];
+                currentSkyBox--;
+                break;
+            case 4:
+                RenderSettings.skybox = mySkyBoxMaterial[3];
+                currentSkyBox--;
+                break;
+            case 5:
+                RenderSettings.skybox = mySkyBoxMaterial[4];
+                currentSkyBox--;
+                break;
+            case 6:
+                RenderSettings.skybox = mySkyBoxMaterial[5];
+                currentSkyBox--;
+                break;
+
+        }
+
+    }*/
+}
+
 
 
 
@@ -207,3 +193,4 @@ public class MoveButton : MonoBehaviour
     }
     [Space, SerializeField] PreviousArea previousareaInfo;
 }
+ */
