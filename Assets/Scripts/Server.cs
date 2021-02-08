@@ -46,7 +46,7 @@ public class Server : MonoBehaviour
 		if (w.error != null) {
 			errorMessages.transform.parent.gameObject.SetActive(true);
 			errorMessages.text = "404 not found!";
-			Debug.Log("<color=red>"+w.text+"</color>");//error
+			Debug.Log("<color=red>"+w.error+"</color>");//error
 		} else {
 			if (w.isDone) {
 				// als de echo een error woord bevat

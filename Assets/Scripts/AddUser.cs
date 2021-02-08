@@ -31,7 +31,7 @@ public class AddUser : MonoBehaviour
         if (w.error != null)
         {
             
-            Debug.Log("<color=red>" + w.text + "</color>");//error
+            Debug.Log("<color=red>" +w.error+ "</color>");//error
         }
         else
         {
@@ -41,7 +41,7 @@ public class AddUser : MonoBehaviour
                 if (w.text.Contains("error"))
                 {
                    
-                    Debug.Log("<color=red>" + w.text + "</color>");//error
+                    Debug.Log("<color=red>" +"testest" + "</color>");//error
                 }
                 else
                 {
