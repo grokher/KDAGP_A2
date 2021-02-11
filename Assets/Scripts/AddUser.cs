@@ -7,15 +7,44 @@ public class AddUser : MonoBehaviour
 {
     public InputField username;
     public InputField password;
+    public Dropdown rights;
+    private string roleName;
     public Button createButton;
+
+    public Text createMessage;
 
     public string Url;
     WWWForm form;
-    
+    private void Start()
+    {
+        createMessage.gameObject.SetActive(false);
+    }
     public void OnButtonclick()
     {
+        createMessage.gameObject.SetActive(true);
         createButton.interactable = false;
         StartCoroutine(CreateUser());
+    }
+    private void Update()
+    {
+        if(rights.value == 0)
+        {
+            roleName = "Student";
+            createMessage.text = "<color=green>" + "You created a student account" + "</color>";
+        }
+        else if(rights.value == 1){
+            roleName = "Docent";
+            createMessage.text = "<color=green>" + "You created a docent account" + "</color>";
+        }
+        else if (rights.value == 2)
+        {
+            roleName = "Beheerder";
+            createMessage.text = "<color=green>" + "You created a beheerder account" + "</color>";
+        }
+        else
+        {
+            Debug.Log("error no role was given");
+        }
     }
     IEnumerator CreateUser()
     {
@@ -23,7 +52,7 @@ public class AddUser : MonoBehaviour
 
         form.AddField("NewUserName", username.text);
         form.AddField("NewUserPassword", password.text);
-        //form.AddField("NewRights", Rights.text);
+        form.AddField("NewRights", roleName);
 
         WWW w = new WWW(Url,form);
 
