@@ -35,6 +35,9 @@ public class Server : MonoBehaviour
 		form.AddField ("username", username.text);
 		form.AddField ("password", password.text);
 
+		DataObject.Username = username.text;
+		DataObject.Password = password.text;
+
 		// start een WebRequest naar de gewenste url en stuur de gegevens mee
 		WWW w = new WWW (url, form);
 
@@ -54,11 +57,22 @@ public class Server : MonoBehaviour
 					errorMessages.transform.parent.gameObject.SetActive(true);
 					errorMessages.text = "Je gebruikerscode of wachtwoord is niet juist";
 					Debug.Log("<color=red>"+w.text+"</color>");//error
-				} else {
+				}
+				else if(w.text.Contains("blocked"))
+                {
+					errorMessages.transform.parent.gameObject.SetActive(true);
+					errorMessages.text = "De User is blocked";
+					Debug.Log("<color=red>" + w.text + "</color>");//error
+				}
+				else {
 					//open het welkomst paneel
 					welcomePanel.SetActive (true);
 					user.text = username.text;
 					Debug.Log("<color=green>"+w.text+"</color>");//user exist
+					if (w.text.Contains("Student") || w.text.Contains("Docent") || w.text.Contains("Beheerder"))
+                    {
+						DataObject.Rights = w.text;
+                    }
 				}
 			}
 		}
