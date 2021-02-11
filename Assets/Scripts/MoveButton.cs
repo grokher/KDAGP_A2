@@ -5,90 +5,72 @@ using UnityEngine.UI;
 
 public class MoveButton : MonoBehaviour
 {
-    string text;
-
     public Material[] mySkyBoxMaterial;
 
-    int currentSkyBox;
+    int currentSkyBoxNext = 0;
+    int currentSkyBoxPrevious;
 
-    bool buttonClick = false;
     private void Update()
     {
-        Debug.Log(currentSkyBox);
+        Debug.Log(currentSkyBoxNext);
+        
     }
     public void moveToNextArea()
     {
-        switch (currentSkyBox + 1)
+        
+        switch (currentSkyBoxNext)
         {
             case 0:
                 RenderSettings.skybox = mySkyBoxMaterial[0];
-                currentSkyBox++;
                 break;
             case 1:
                 RenderSettings.skybox = mySkyBoxMaterial[1];
-                currentSkyBox++;
                 break;
             case 2:
                 RenderSettings.skybox = mySkyBoxMaterial[2];
-                currentSkyBox = -1;
                 break;
             case 3:
                 RenderSettings.skybox = mySkyBoxMaterial[3];
-                currentSkyBox++;
                 break;
             case 4:
                 RenderSettings.skybox = mySkyBoxMaterial[4];
-                currentSkyBox++;
                 break;
             case 5:
                 RenderSettings.skybox = mySkyBoxMaterial[5];
-                currentSkyBox++;
                 break;
             case 6:
                 RenderSettings.skybox = mySkyBoxMaterial[6];
-                currentSkyBox = -1;
                 break;
-
         }
 
     }
-    /*public void moveToPreviousArea()
+    public void moveToPreviousArea()
     {
-        switch (currentSkyBox + 1)
+        switch (currentSkyBoxNext = currentSkyBoxPrevious - 1)
         {
             case 0:
                 RenderSettings.skybox = mySkyBoxMaterial[0];
-                
                 break;
-            case 1:
-                currentSkyBox--;
-                RenderSettings.skybox = mySkyBoxMaterial[0];
-                
+            case -1:
+                RenderSettings.skybox = mySkyBoxMaterial[1];
                 break;
             case 2:
-                RenderSettings.skybox = mySkyBoxMaterial[1];
-                currentSkyBox--;
+                RenderSettings.skybox = mySkyBoxMaterial[2];
                 break;
             case 3:
-                RenderSettings.skybox = mySkyBoxMaterial[2];
-                currentSkyBox--;
+                RenderSettings.skybox = mySkyBoxMaterial[3];
                 break;
             case 4:
-                RenderSettings.skybox = mySkyBoxMaterial[3];
-                currentSkyBox--;
+                RenderSettings.skybox = mySkyBoxMaterial[4];
                 break;
             case 5:
-                RenderSettings.skybox = mySkyBoxMaterial[4];
-                currentSkyBox--;
+                RenderSettings.skybox = mySkyBoxMaterial[5];
                 break;
             case 6:
-                RenderSettings.skybox = mySkyBoxMaterial[5];
-                currentSkyBox--;
+                RenderSettings.skybox = mySkyBoxMaterial[6];
                 break;
-
         }
-
-    }*/
+    }
 }
 
 
