@@ -13,5 +13,9 @@ public class LoadingScenes : MonoBehaviour
     {
         SceneManager.LoadScene("LoginScreen");
     }
+    public void loadFotoScene()
+    {
+        SceneManager.LoadScene("Davids scene");
+    }
     
 }
