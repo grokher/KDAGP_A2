@@ -1067,6 +1067,7 @@ GameObject:
   - component: {fileID: 1586199345}
   - component: {fileID: 1586199346}
   - component: {fileID: 1586199347}
+  - component: {fileID: 1586199348}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1178,6 +1179,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f47859d341b72d478197fa2623b7d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1586199348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586199341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a647bb394a570342b278d508fe30a85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FTPHost: ftp://stamgroepa2%2540mediaenvormgeving.nl@mediaenvormgeving.nl/Images/Skyboxes
+  FTPUserName: stamgroepa2@mediaenvormgeving.nl
+  FTPPassword: KZ93D3fB01
+  FilePath: C:\Users\bramw\AppData\Roaming\.minecraft\screenshots\2021-02-17_18.20.27.png
 --- !u!1 &1784177198
 GameObject:
   m_ObjectHideFlags: 0
