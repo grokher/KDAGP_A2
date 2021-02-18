@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class DropdownMenuManager : MonoBehaviour
 {
     [SerializeField]
@@ -9,7 +10,7 @@ public class DropdownMenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Menu.gameObject.SetActive(false);   
     }
 
     // Update is called once per frame
@@ -21,5 +22,9 @@ public class DropdownMenuManager : MonoBehaviour
     {
         Menu.gameObject.SetActive(true);
         Menu.gameObject.GetComponent<Animator>().SetBool("MenuOpen", true);
+    }
+    public void ChangeScene(string name)
+    {
+        SceneManager.LoadScene(name);
     }
 }
