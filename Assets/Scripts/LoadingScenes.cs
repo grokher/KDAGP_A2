@@ -5,8 +5,14 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LoadingScenes : MonoBehaviour
-{
+{           
     public GameObject loggedInPanel;
+    Scene currentscene;
+
+    private void Start()
+    {
+        currentscene = SceneManager.GetActiveScene();
+    }
     public void LoadCreateScene()
     {
         SceneManager.LoadScene("createUserScene");
@@ -17,10 +23,15 @@ public class LoadingScenes : MonoBehaviour
     }
     void Update()
     {
-        if (loggedInPanel.activeInHierarchy == true)
+        if (currentscene.name == ("LoginScreen"))
         {
-            StartCoroutine(Load());
+            if (loggedInPanel.activeInHierarchy == true)
+            {
+                StartCoroutine(Load());
+            }
         }
+
+        
 
     }
     IEnumerator Load()
