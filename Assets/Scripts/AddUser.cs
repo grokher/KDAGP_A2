@@ -57,6 +57,11 @@ public class AddUser : MonoBehaviour
         WWW w = new WWW(Url,form);
 
         yield return w;
+
+        if (w.text.Contains("usernameError"))
+        {
+            Debug.Log("<color=red>" + w.text + "</color>");
+        }
         if (w.error != null)
         {
             
