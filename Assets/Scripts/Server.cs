@@ -57,7 +57,9 @@ public class Server : MonoBehaviour
 					errorMessages.transform.parent.gameObject.SetActive(true);
 					errorMessages.text = "Je gebruikerscode of wachtwoord is niet juist";
 					Debug.Log("<color=red>"+w.text+"</color>");//error
-				}
+                    yield return new WaitForSeconds(5);
+                    errorMessages.transform.parent.gameObject.SetActive(false);
+                }
 				else if(w.text.Contains("blocked"))
                 {
 					errorMessages.transform.parent.gameObject.SetActive(true);
