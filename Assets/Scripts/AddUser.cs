@@ -58,6 +58,7 @@ public class AddUser : MonoBehaviour
 
         yield return w;
 
+        Debug.Log(w.text);
         if (w.text.Contains("usernameError"))
         {
             Debug.Log("<color=red>" + w.text + "</color>");

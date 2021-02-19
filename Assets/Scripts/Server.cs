@@ -35,9 +35,6 @@ public class Server : MonoBehaviour
 		form.AddField ("username", username.text);
 		form.AddField ("password", password.text);
 
-		DataObject.Username = username.text;
-		DataObject.Password = password.text;
-
 		// start een WebRequest naar de gewenste url en stuur de gegevens mee
 		WWW w = new WWW (url, form);
 
@@ -71,10 +68,6 @@ public class Server : MonoBehaviour
 					welcomePanel.SetActive (true);
 					user.text = username.text;
 					Debug.Log("<color=green>"+w.text+"</color>");//user exist
-					if (w.text.Contains("Student") || w.text.Contains("Docent") || w.text.Contains("Beheerder"))
-                    {
-						DataObject.Rights = w.text;
-                    }
 				}
 			}
 		}
