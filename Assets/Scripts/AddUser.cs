@@ -59,10 +59,7 @@ public class AddUser : MonoBehaviour
         yield return w;
 
         Debug.Log(w.text);
-        if (w.text.Contains("usernameError"))
-        {
-            Debug.Log("<color=red>" + w.text + "</color>");
-        }
+
         if (w.error != null)
         {
             
@@ -73,15 +70,13 @@ public class AddUser : MonoBehaviour
             if (w.isDone)
             {
                 // als de echo een error woord bevat
-                if (w.text.Contains("error"))
+                if (w.text.Contains("Error"))
                 {
                    
-                    Debug.Log("<color=red>" +"testest" + "</color>");//error
+                    Debug.Log("<color=red>" + w.text + "</color>");//error
                 }
                 else
                 {
-                    
-                    
                     Debug.Log(w.text);
                 }
             }
