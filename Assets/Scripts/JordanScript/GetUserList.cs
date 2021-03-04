@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class GetUserList : MonoBehaviour
 {
     public string URL;
-    WWWForm form;
     public Text userdata;
     
     private List<string> UsersData = new List<string>();
@@ -33,8 +32,7 @@ public class GetUserList : MonoBehaviour
        
         WWW w = new WWW(URL);
 
-
-        UsersData.Add(w.ToString());
+        //UsersData.Add(w.ToString());
             yield return w;
 
 
@@ -47,10 +45,12 @@ public class GetUserList : MonoBehaviour
             }
             else
             {
+                userdata.text = w.text;
+                KeepInfo.JsonConvertor(w);
                 
             }
 
-            Debug.Log(w.text[0][0]);
+            //Debug.Log(w.text[0][0]);
 
         }
 
