@@ -77,7 +77,7 @@ public class Server : MonoBehaviour
 					//open het welkomst paneel
 					welcomePanel.SetActive (true);
 					user.text = username.text;
-					Debug.Log("<color=green>"+w.text+"</color>");//user exist
+					KeepInfo.JsonConvertor(w);
 				}
 			}
 		}
