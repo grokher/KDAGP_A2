@@ -130,6 +130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 14384628}
+  - component: {fileID: 14384627}
   m_Layer: 0
   m_Name: KeepLoginInfo
   m_TagString: Untagged
@@ -137,6 +138,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &14384627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14384626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c8510d6dfd97af47a66a777f7bcd4fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &14384628
 Transform:
   m_ObjectHideFlags: 0

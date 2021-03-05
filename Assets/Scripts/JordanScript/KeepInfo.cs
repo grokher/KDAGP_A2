@@ -6,15 +6,20 @@ using UnityEngine;
 
 public class KeepInfo : MonoBehaviour
 {
+    public static Object test = new Object();
+
+    private void Start()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     public static void JsonConvertor(WWW w)
     {
-        Debug.Log(w.text);
         string tester = w.text;
         tester = tester.Substring(1, tester.Length - 2);
         Debug.Log(tester);
-        Object test = new Object();
         test = JsonUtility.FromJson<Object>(tester);
-        Debug.Log(test.isBlocked);
+        Debug.Log(test.username);
     }
 }
 
