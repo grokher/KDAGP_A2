@@ -35,9 +35,6 @@ public class Server : MonoBehaviour
 		form.AddField ("username", username.text);
 		form.AddField ("password", password.text);
 
-		DataObject.Username = username.text;
-		DataObject.Password = password.text;
-
 		// start een WebRequest naar de gewenste url en stuur de gegevens mee
 		WWW w = new WWW (url, form);
 
@@ -46,33 +43,41 @@ public class Server : MonoBehaviour
 		yield return w;
 
 		// als er direct een error komt vanuit db.php
-		if (w.error != null) {
+		if (w.error != null)
+        {
 			errorMessages.transform.parent.gameObject.SetActive(true);
 			errorMessages.text = "404 not found!";
 			Debug.Log("<color=red>"+w.error+"</color>");//error
-		} else {
-			if (w.isDone) {
+            yield return new WaitForSeconds(5);
+            errorMessages.transform.parent.gameObject.SetActive(false);
+        }
+        else
+        {
+			if (w.isDone)
+            {
 				// als de echo een error woord bevat
-				if (w.text.Contains ("error")) {
+				if (w.text.Contains ("error"))
+                {
 					errorMessages.transform.parent.gameObject.SetActive(true);
 					errorMessages.text = "Je gebruikerscode of wachtwoord is niet juist";
 					Debug.Log("<color=red>"+w.text+"</color>");//error
-				}
+                    yield return new WaitForSeconds(5);
+                    errorMessages.transform.parent.gameObject.SetActive(false);
+                }
 				else if(w.text.Contains("blocked"))
                 {
 					errorMessages.transform.parent.gameObject.SetActive(true);
 					errorMessages.text = "De User is blocked";
 					Debug.Log("<color=red>" + w.text + "</color>");//error
-				}
-				else {
+                    yield return new WaitForSeconds(5);
+                    errorMessages.transform.parent.gameObject.SetActive(false);
+                }
+				else
+                {
 					//open het welkomst paneel
 					welcomePanel.SetActive (true);
 					user.text = username.text;
-					Debug.Log("<color=green>"+w.text+"</color>");//user exist
-					if (w.text.Contains("Student") || w.text.Contains("Docent") || w.text.Contains("Beheerder"))
-                    {
-						DataObject.Rights = w.text;
-                    }
+					KeepInfo.JsonConvertor(w);
 				}
 			}
 		}
