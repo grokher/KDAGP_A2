@@ -23,8 +23,8 @@ public class CreateMaterial : MonoBehaviour
     private void Awake()
     {
         string path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop);
-        path = Path.Combine(path, "Hi.png");
-        downloadWithFTP("ftp://stamgroepa2%2540mediaenvormgeving.nl@mediaenvormgeving.nl/Images/561798.jpg", path, "stamgroepa2@mediaenvormgeving.nl", "KZ93D3fB01");
+        //path = Path.Combine(path, "H");
+        //downloadWithFTP("ftp://stamgroepa2%2540mediaenvormgeving.nl@mediaenvormgeving.nl/Images/561798.jpg", path, "stamgroepa2@mediaenvormgeving.nl", "KZ93D3fB01");
     }
 
     private byte[] downloadWithFTP(string ftpUrl, string savePath = "", string userName = "", string password = "")

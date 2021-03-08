@@ -6,25 +6,28 @@ using UnityEngine;
 
 public class KeepInfo : MonoBehaviour
 {
-    public static Object test = new Object();
+    public static LoginInfo loginInfo = new LoginInfo();
 
     private void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
+        if (GameObject.Find("KeepLoginInfo") == null)
+        {
+            DontDestroyOnLoad(this.gameObject);
+        }
+        
     }
 
     public static void JsonConvertor(WWW w)
     {
-        string tester = w.text;
-        tester = tester.Substring(1, tester.Length - 2);
-        Debug.Log(tester);
-        test = JsonUtility.FromJson<Object>(tester);
-        Debug.Log(test.username);
+        string jsonText = w.text.Substring(1, w.text.Length - 2);
+        //Debug.Log(jsonText);
+        loginInfo = JsonUtility.FromJson<LoginInfo>(jsonText);
+        //Debug.Log(loginInfo.username);
     }
 }
 
 [System.Serializable]
-public class Object
+public class LoginInfo
 {
     public string username;
     public string password;
