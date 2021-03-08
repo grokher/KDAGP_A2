@@ -21,6 +21,10 @@ public class LoadingScenes : MonoBehaviour
     {
         SceneManager.LoadScene("LoginScreen");
     }
+    public void LoadServerScene()
+    {
+        SceneManager.LoadScene("Nathans scene");
+    }
     void Update()
     {
         if (currentscene.name == ("LoginScreen"))
@@ -37,6 +41,6 @@ public class LoadingScenes : MonoBehaviour
     IEnumerator Load()
     {
         yield return new WaitForSeconds(3);
-        SceneManager.LoadScene("Davids scene");
+        SceneManager.LoadScene("Nathans scene");
     }
 }

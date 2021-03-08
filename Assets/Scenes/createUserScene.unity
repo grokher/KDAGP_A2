@@ -2488,7 +2488,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2141276921}
-        m_MethodName: LoadLoginScene
+        m_MethodName: LoadServerScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3275,6 +3275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f2ed3534b60bb4aaec0f552641bf44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loggedInPanel: {fileID: 0}
 --- !u!114 &2141276922
 MonoBehaviour:
   m_ObjectHideFlags: 0
