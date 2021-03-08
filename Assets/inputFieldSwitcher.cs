@@ -1,18 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class inputFieldSwitcher : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    [SerializeField]InputField[] fields;
     // Update is called once per frame
     void Update()
     {
-        
+        for (int i = 0; i < fields.Length; i++)
+        {
+            if (fields[i].isActiveAndEnabled && Input.GetKeyDown(KeyCode.Tab))
+            {
+                fields[i +1].ActivateInputField();
+            }
+        }
+      
     }
 }
