@@ -10,7 +10,11 @@ public class KeepInfo : MonoBehaviour
 
     private void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
+        if (GameObject.Find("KeepLoginInfo") == null)
+        {
+            DontDestroyOnLoad(this.gameObject);
+        }
+        
     }
 
     public static void JsonConvertor(WWW w)
