@@ -24,6 +24,7 @@ public class GetUserList : MonoBehaviour
 
         Debug.Log("seconds");
 
+
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
             SqlCommand command = new SqlCommand("SELECT username, id,isBlocked FROM users ORDER BY isBlocked", conn);
