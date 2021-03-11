@@ -9,6 +9,15 @@ public class DropdownMenuManager : MonoBehaviour
     Image Menu;
     [SerializeField]
     bool isOpen;
+    
+
+    public void MenuButton()
+    {
+        isOpen = !isOpen;
+        Menu.gameObject.GetComponent<Animator>().SetBool("MenuOpen", isOpen);
+    }
+
+    /*
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +51,7 @@ public class DropdownMenuManager : MonoBehaviour
             isOpen = true;
         }
     }
+    */
     public void ChangeScene(string name)
     {
         SceneManager.LoadScene(name);
