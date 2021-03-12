@@ -275,9 +275,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7009882027506795318}
-        m_MethodName: ChangeScene
-        m_Mode: 5
+      - m_Target: {fileID: 1235153021151343018}
+        m_MethodName: EnableCreateUI
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1363,6 +1363,7 @@ GameObject:
   - component: {fileID: 7009882027506795314}
   - component: {fileID: 7009882027506795318}
   - component: {fileID: 7009882027506795319}
+  - component: {fileID: 1235153021151343018}
   m_Layer: 5
   m_Name: SlideMenu
   m_TagString: Untagged
@@ -1485,6 +1486,19 @@ MonoBehaviour:
   - {fileID: 7009882026305958657}
   - {fileID: 7009882026347198621}
   - {fileID: 7009882026285651804}
+--- !u!114 &1235153021151343018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7009882027506795341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9f2ed3534b60bb4aaec0f552641bf44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loggedInPanel: {fileID: 0}
 --- !u!1 &7009882027511707838
 GameObject:
   m_ObjectHideFlags: 0

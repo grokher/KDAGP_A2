@@ -12,6 +12,8 @@ public class LoadingScenes : MonoBehaviour
     private void Start()
     {
         currentscene = SceneManager.GetActiveScene();
+        loggedInPanel = GameObject.Find("CreateUserPanel");
+        loggedInPanel.SetActive(false);
     }
     public void LoadCreateScene()
     {
@@ -24,6 +26,14 @@ public class LoadingScenes : MonoBehaviour
     public void LoadServerScene()
     {
         SceneManager.LoadScene("Nathans scene");
+    }
+    public void EnableCreateUI() 
+    {
+        loggedInPanel.SetActive(true);
+    }
+    public void DisableCreateUI()
+    {
+        loggedInPanel.SetActive(false);
     }
     void Update()
     {

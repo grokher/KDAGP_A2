@@ -10,6 +10,7 @@ public class AddUser : MonoBehaviour
     public Dropdown rights;
     private string roleName;
     public Button createButton;
+    
 
     public Text createMessage;
 
@@ -18,6 +19,7 @@ public class AddUser : MonoBehaviour
     private void Start()
     {
         createMessage.gameObject.SetActive(false);
+       
     }
     public void OnButtonclick()
     {
@@ -81,8 +83,9 @@ public class AddUser : MonoBehaviour
                 }
             }
         }
-
+       
         createButton.interactable = true;
+
         w.Dispose();
     }
     
