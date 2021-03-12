@@ -9,11 +9,15 @@ public class LoadingScenes : MonoBehaviour
     public GameObject loggedInPanel;
     Scene currentscene;
 
+    private void Awake()
+    {
+        loggedInPanel = GameObject.Find("CreateUserPanel");
+        loggedInPanel.SetActive(false);
+    }
+
     private void Start()
     {
         currentscene = SceneManager.GetActiveScene();
-        loggedInPanel = GameObject.Find("CreateUserPanel");
-        loggedInPanel.SetActive(false);
     }
     public void LoadCreateScene()
     {
