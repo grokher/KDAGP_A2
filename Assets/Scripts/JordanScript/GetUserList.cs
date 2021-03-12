@@ -6,12 +6,17 @@ using System.Data;
 using System.Data.SqlClient;
 using System;
 using Newtonsoft.Json;
+using TMPro;
 
 
 public class GetUserList : MonoBehaviour
 {
     public string URL;
-    public Text userdata;
+    //public Text userdata;
+    public GameObject textdata;
+    public GameObject Parent;
+    private Vector3 scaleChange;
+    public TextMeshProUGUI UserData;
 
     void Start()
     {
@@ -38,10 +43,19 @@ public class GetUserList : MonoBehaviour
             {
                 List<Userinfo> userinfo = new List<Userinfo>();
                 userinfo = JsonConvert.DeserializeObject<List<Userinfo>>(w.text);
+                Debug.Log(w.text);
 
                 foreach (var user in userinfo)
                 {
-                    //MAAK GAMEOBJECT VOOR ELKE USER, GEEF HIER ID, USERNAME EN BLOCKED DOOR
+                    scaleChange = new Vector3(1, 1, 1);
+                  
+                    GameObject parent = GameObject.Find("Content");
+                    GameObject Usertext = Instantiate(textdata);
+                    Usertext.transform.SetParent(parent.transform);
+                    Usertext.transform.localScale = scaleChange;
+                    UserData.text = user.username + "  " + user.isBlocked;
+                    Debug.Log(user.username);
+
                     //fucking dfhdshgjkdshgjedgfesdjg
 
                     //Debug.Log("Name is " + user.username + " and Id is " + user.id);
