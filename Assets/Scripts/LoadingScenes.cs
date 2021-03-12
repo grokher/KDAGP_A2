@@ -7,12 +7,14 @@ using UnityEngine.UI;
 public class LoadingScenes : MonoBehaviour
 {           
     public GameObject loggedInPanel;
+    public GameObject createPanel;
     Scene currentscene;
 
     private void Awake()
     {
-        loggedInPanel = GameObject.Find("CreateUserPanel");
-        loggedInPanel.SetActive(false);
+        createPanel = GameObject.Find("CreateUserPanel");
+        if (createPanel != null) 
+        { createPanel.SetActive(false); }
     }
 
     private void Start()
@@ -33,11 +35,11 @@ public class LoadingScenes : MonoBehaviour
     }
     public void EnableCreateUI() 
     {
-        loggedInPanel.SetActive(true);
+        createPanel.SetActive(true);
     }
     public void DisableCreateUI()
     {
-        loggedInPanel.SetActive(false);
+        createPanel.SetActive(false);
     }
     void Update()
     {
