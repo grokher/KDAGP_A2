@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Data;
-using System.Data.SqlClient;
 using System;
 using Newtonsoft.Json;
 using TMPro;
@@ -12,7 +10,6 @@ using TMPro;
 public class GetUserList : MonoBehaviour
 {
     public string URL;
-    //public Text userdata;
     public GameObject textdata;
     public GameObject Parent;
     private Vector3 scaleChange;
@@ -23,15 +20,11 @@ public class GetUserList : MonoBehaviour
         StartCoroutine(GetUsersList());
     }
 
-    
     IEnumerator GetUsersList()
     {
-       
         WWW w = new WWW(URL);
 
-        
         yield return w;
-
 
         if (w.isDone)
         {
@@ -41,36 +34,32 @@ public class GetUserList : MonoBehaviour
             }
             else
             {
+                //picking up data from json file
                 List<Userinfo> userinfo = new List<Userinfo>();
                 userinfo = JsonConvert.DeserializeObject<List<Userinfo>>(w.text);
-                Debug.Log(w.text);
 
                 foreach (var user in userinfo)
                 {
                     scaleChange = new Vector3(1, 1, 1);
                   
                     GameObject parent = GameObject.Find("Content");
-                    GameObject Usertext = Instantiate(textdata);
-                    Usertext.transform.SetParent(parent.transform);
-                    Usertext.transform.localScale = scaleChange;
+                    //instanitiate and transforming scale so it's right
+                    GameObject textMesh = Instantiate(textdata);
+
+                    textMesh.transform.SetParent(parent.transform);
+
+                    textMesh.transform.localScale = scaleChange;
+                    //adding data to the text
                     UserData.text = user.username + "  " + user.isBlocked;
-                    Debug.Log(user.username);
 
+                    Debug.Log(w.text);
                     //fucking dfhdshgjkdshgjedgfesdjg
-
-                    //Debug.Log("Name is " + user.username + " and Id is " + user.id);
                 }
-
-
             }
         }
         w.Dispose();
     }
-
-   
 }
-
-[Serializable]
 public class Userinfo
 {
     public string username { set; get; }
