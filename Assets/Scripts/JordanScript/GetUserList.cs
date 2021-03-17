@@ -52,11 +52,9 @@ public class GetUserList : MonoBehaviour
                     //adding data to the text
 
                     textMesh.GetComponent<TextMeshProUGUI>().text = user.username + "  " + user.isBlocked;
-                    //UserData.text = user.username + "  " + user.isBlocked;
 
-                    Debug.Log(user.username);
-                    Debug.Log(w.text);
-                    //fucking dfhdshgjkdshgjedgfesdjg
+                    textMesh.transform.GetChild(0).GetComponent<Text>().text = user.isBlocked;
+                    textMesh.transform.GetChild(1).GetComponent<Text>().text = user.username;
                 }
             }
         }

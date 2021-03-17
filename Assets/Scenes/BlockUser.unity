@@ -616,7 +616,7 @@ MonoBehaviour:
   m_Direction: 2
   m_Value: 0
   m_Size: 1
-  m_NumberOfSteps: 0
+  m_NumberOfSteps: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1623,7 +1623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   URL: http://www.mediaenvormgeving.nl/stamgroepa2/GetUserList.php
-  textdata: {fileID: 6041765574822041163, guid: e23730a4b2f2ce847b53de85238eed10,
+  textdata: {fileID: 6041765574822041163, guid: 9390650426292254fb3dc2823b354bcc,
     type: 3}
   Parent: {fileID: 1073847001}
   UserData: {fileID: 6041765574822041157, guid: e23730a4b2f2ce847b53de85238eed10,
