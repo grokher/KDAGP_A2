@@ -44,14 +44,17 @@ public class GetUserList : MonoBehaviour
                   
                     GameObject parent = GameObject.Find("Content");
                     //instanitiate and transforming scale so it's right
-                    GameObject textMesh = Instantiate(textdata);
+                    GameObject textMesh = Instantiate(textdata, parent.transform);
 
-                    textMesh.transform.SetParent(parent.transform);
+                    //textMesh.transform.SetParent(parent.transform);
 
                     textMesh.transform.localScale = scaleChange;
                     //adding data to the text
-                    UserData.text = user.username + "  " + user.isBlocked;
 
+                    textMesh.GetComponent<TextMeshProUGUI>().text = user.username + "  " + user.isBlocked;
+                    //UserData.text = user.username + "  " + user.isBlocked;
+
+                    Debug.Log(user.username);
                     Debug.Log(w.text);
                     //fucking dfhdshgjkdshgjedgfesdjg
                 }
