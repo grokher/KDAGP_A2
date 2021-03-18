@@ -1624,9 +1624,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   URL: http://www.mediaenvormgeving.nl/stamgroepa2/GetUserList.php
-  textdata: {fileID: 6041765574822041163, guid: 9390650426292254fb3dc2823b354bcc,
+  textdata: {fileID: 6749875940619388658, guid: d3023ec88eddeb547b361f3797dc3a77,
     type: 3}
-  Parent: {fileID: 1073847001}
   UserData: {fileID: 6041765574822041157, guid: e23730a4b2f2ce847b53de85238eed10,
     type: 3}
 --- !u!114 &2141276922
