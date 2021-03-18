@@ -16,8 +16,15 @@ public class FilterButtons : MonoBehaviour
         {
             for (int i = 0; i < Buttons.Count; i++)
             {
+                Debug.Log(i.ToString());
+                if (i + 1 > studentButtons.Count)
+                {
+                    Buttons[i].SetActive(false);
+                }
+                else { 
                 Buttons[i].GetComponentInChildren<Text>().text = studentButtons[i];
                 Buttons[i].GetComponent<Button>().onClick = studentEvents[i];
+                }
             }           
         }
         else
