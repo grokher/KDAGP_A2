@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class QuestionsInsert : MonoBehaviour
 {
     public string URL;
-    public Text question;
+    public InputField question;
+    InputField answer;
+    [SerializeField] Text correctAnswerText;
     WWWForm form;
 
 
@@ -15,12 +18,24 @@ public class QuestionsInsert : MonoBehaviour
         StartCoroutine(GetUsersList());
     }
 
-
+    public void CorrectAnswer()
+    {
+        answer = EventSystem.current.currentSelectedGameObject.gameObject.GetComponentInChildren<InputField>();   
+        if (answer.text != "")
+        {
+            Debug.Log(answer.text);
+            correctAnswerText.text = "CorrectAnswer: " + EventSystem.current.currentSelectedGameObject.gameObject.GetComponentInChildren<Text>().text;
+        }
+        else
+        {
+            Debug.Log("Error, no answer given.");
+        }
+    }
     IEnumerator GetUsersList()
     {
         form = new WWWForm();
         form.AddField("Question", question.text);
-
+        //form.AddField("Answer", answer.text);
         WWW w = new WWW(URL, form);
 
 
@@ -33,6 +48,8 @@ public class QuestionsInsert : MonoBehaviour
         if (w.isDone)
         {
             Debug.Log(w.text);
+            question.text = "";
+            //answer.text = "";
         }
         w.Dispose();
     }

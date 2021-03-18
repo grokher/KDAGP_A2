@@ -9,7 +9,8 @@ public class DropdownMenuManager : MonoBehaviour
     Image Menu;
     [SerializeField]
     bool isOpen;
-    
+    [SerializeField]
+    GameObject QuestionBox;
 
     public void MenuButton()
     {
@@ -55,5 +56,13 @@ public class DropdownMenuManager : MonoBehaviour
     public void ChangeScene(string name)
     {
         SceneManager.LoadScene(name);
+    }
+    public void OpenQuestionBox()
+    {
+        QuestionBox.SetActive(true);
+    }
+    public void CloseQuestionBox()
+    {
+        QuestionBox.SetActive(false);
     }
 }
