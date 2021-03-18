@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class UserSelect : MonoBehaviour
 {
     private bool selected;
+    public static string username;
+    public static string blocked;
 
     // Start is called before the first frame update
     void Start()
@@ -55,9 +57,15 @@ public class UserSelect : MonoBehaviour
     public  void blockUser()
     {
         Debug.Log("presed");
-        if (selected == true)
+        username = this.transform.GetChild(1).GetComponent<Text>().text;
+        blocked = this.transform.GetChild(0).GetComponent<Text>().text;
+        
+        /*if (selected == true)
         {
-
-        }
+            username = this.transform.GetChild(0).transform.GetChild(1).GetComponent<Text>().text;
+            blocked = this.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text;
+            Debug.Log(username);
+            Debug.Log(blocked);
+        }*/
     }
 }
