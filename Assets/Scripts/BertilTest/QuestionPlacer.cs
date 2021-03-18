@@ -9,12 +9,12 @@ public class QuestionPlacer : MonoBehaviour
     public GameObject[] questionTypes;
     Quaternion rot;
     Vector3 worldPosition;
-    bool buildingMode;
 
-    int qN;
+    bool placeWindow;
 
-    InputField sizeField;
+    Slider sizeField;
     int awnsers;
+    int qN;
 
     Dropdown format;
 
@@ -22,7 +22,15 @@ public class QuestionPlacer : MonoBehaviour
     {
         rot = this.gameObject.transform.rotation;
         format = GameObject.Find("FormatSelecor").GetComponent<Dropdown>();
-        sizeField = GameObject.Find("AwnserAmount").GetComponent<InputField>();
+        sizeField = GameObject.Find("Questions").GetComponent<Slider>();
+    }
+
+    public void Update()
+    {
+        if (placeWindow)
+        {
+            OnClick();
+        }
     }
 
     public void MakeQuestion()
@@ -34,7 +42,8 @@ public class QuestionPlacer : MonoBehaviour
     {
         try
         {
-            awnsers = int.Parse(sizeField.text);
+            awnsers = (int)sizeField.value;
+            placeWindow = true;
         }
         catch (Exception e)
         {
@@ -44,10 +53,25 @@ public class QuestionPlacer : MonoBehaviour
 
     void OnClick()
     {
-        if (Input.GetKey(KeyCode.Mouse0) && buildingMode && qN != 0)
+        if (awnsers == 2)
         {
-            PlaceObjectAtMouse(questionTypes[qN]);
+            qN = 1;
         }
+        if (awnsers == 3)
+        {
+            qN = 2;
+        }
+        if (awnsers == 4)
+        {
+            qN = 3;
+        }
+        if (Input.GetKey(KeyCode.Mouse0) && qN != 0)
+        {
+            PlaceObjectAtMouse(questionTypes[(qN - 1)]);
+            placeWindow = false;
+        }
+
+        qN = 0;
     }
 
     void PlaceObjectAtMouse(GameObject placeObj)
