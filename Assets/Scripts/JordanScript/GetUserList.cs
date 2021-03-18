@@ -11,14 +11,22 @@ public class GetUserList : MonoBehaviour
 {
     public string URL;
     public GameObject textdata;
-    public GameObject Parent;
     private Vector3 scaleChange;
     public TextMeshProUGUI UserData;
+
+
 
     void Start()
     {
         StartCoroutine(GetUsersList());
     }
+
+    private void Update()
+    {
+        
+    }
+
+ 
 
     IEnumerator GetUsersList()
     {
@@ -51,16 +59,18 @@ public class GetUserList : MonoBehaviour
                     textMesh.transform.localScale = scaleChange;
                     //adding data to the text
 
-                    textMesh.GetComponent<TextMeshProUGUI>().text = user.username + "  " + user.isBlocked;
+                    //textMesh.GetComponent<TextMeshProUGUI>().text = user.username + "  " + user.isBlocked;
+                    textMesh.GetComponentInChildren<TextMeshProUGUI>().text = user.username + "  " + user.isBlocked;
 
-                    textMesh.transform.GetChild(0).GetComponent<Text>().text = user.isBlocked;
-                    textMesh.transform.GetChild(1).GetComponent<Text>().text = user.username;
+                    textMesh.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = user.isBlocked;
+                    textMesh.transform.GetChild(0).transform.GetChild(1).GetComponent<Text>().text = user.username;
                 }
             }
         }
         w.Dispose();
     }
 }
+
 public class Userinfo
 {
     public string username { set; get; }
