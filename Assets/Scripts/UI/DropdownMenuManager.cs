@@ -12,6 +12,11 @@ public class DropdownMenuManager : MonoBehaviour
     [SerializeField]
     GameObject QuestionBox;
 
+
+    private void Start()
+    {
+        QuestionBox.SetActive(false);
+    }
     public void MenuButton()
     {
         isOpen = !isOpen;

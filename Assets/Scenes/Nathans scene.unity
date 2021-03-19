@@ -5220,9 +5220,9 @@ MonoBehaviour:
   - {fileID: 1739693925}
   - {fileID: 1298933430}
   studentButtons:
-  - 'Epic '
-  - 'Man '
-  - Yo
+  - Scenes
+  - 
+  - 
   otherButtons:
   - Info
   - Toets
