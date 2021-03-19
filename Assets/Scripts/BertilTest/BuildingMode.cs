@@ -35,7 +35,7 @@ public class BuildingMode : MonoBehaviour
 
     public void SetWindow()
     {
-        buildingWindow.enabled = !buildingWindow.enabled;
+        this.gameObject.GetComponent<Animator>().SetBool("openWindow", true);
     }
 
     void WindowManager(int on)

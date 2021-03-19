@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class QuestionPlacer : MonoBehaviour
 {
     public GameObject[] questionTypes;
     Quaternion rot;
     Vector3 worldPosition;
+
+    GameObject placingText;
 
     bool placeWindow;
 
@@ -23,12 +26,22 @@ public class QuestionPlacer : MonoBehaviour
         rot = this.gameObject.transform.rotation;
         format = GameObject.Find("FormatSelecor").GetComponent<Dropdown>();
         sizeField = GameObject.Find("Questions").GetComponent<Slider>();
+        placingText = GameObject.Find("PlacingText");
+        try
+        {
+            placingText.SetActive(false);
+        }
+        catch(Exception E)
+        {
+
+        }
     }
 
     public void Update()
     {
         if (placeWindow)
         {
+            placingText.SetActive(true);
             OnClick();
         }
     }
@@ -68,6 +81,7 @@ public class QuestionPlacer : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0) && qN != 0)
         {
             PlaceObjectAtMouse(questionTypes[(qN - 1)]);
+            placingText.SetActive(false);
             placeWindow = false;
         }
 
