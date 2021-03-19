@@ -11,7 +11,11 @@ public class BuildingMode : MonoBehaviour
     public GameObject[] openBuild;
     public GameObject[] infoBuild;
 
+    public Animator anim;
+
     Dropdown selector;
+
+    bool windowState = true;
 
     int lastDrop;
 
@@ -35,7 +39,8 @@ public class BuildingMode : MonoBehaviour
 
     public void SetWindow()
     {
-        this.gameObject.GetComponent<Animator>().SetBool("openWindow", true);
+        windowState = !windowState;
+        anim.SetBool("openWindow", windowState);
     }
 
     void WindowManager(int on)
