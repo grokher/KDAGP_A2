@@ -2,34 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 using Newtonsoft.Json;
 using TMPro;
 
-
-public class GetUserList : MonoBehaviour
+public class RefreshUsers : MonoBehaviour
 {
-    public string URL;
+
     public GameObject textdata;
     private Vector3 scaleChange;
 
+    public string Url;
 
-
-    void Start()
+    // Start is called before the first frame update
+    public void refreshUsers()
     {
-        StartCoroutine(GetUsersList());
+        StartCoroutine(RefreshUser());
     }
 
-    private void Update()
+    IEnumerator RefreshUser()
     {
-        
-    }
 
- 
+        foreach (GameObject clone in GameObject.FindObjectsOfType(typeof(GameObject)))
+        {
+            if (clone.name == "Button(Clone)")
+            {
+                Destroy(clone);
+            }
+        }
 
-    IEnumerator GetUsersList()
-    {
-        WWW w = new WWW(URL);
+        WWW w = new WWW(Url);
 
         yield return w;
 
@@ -48,7 +49,7 @@ public class GetUserList : MonoBehaviour
                 foreach (var user in userinfo)
                 {
                     scaleChange = new Vector3(1, 1, 1);
-                  
+
                     GameObject parent = GameObject.Find("Content");
                     //instanitiate and transforming scale so it's right
                     GameObject textMesh = Instantiate(textdata, parent.transform);
@@ -68,11 +69,4 @@ public class GetUserList : MonoBehaviour
         }
         w.Dispose();
     }
-}
-
-public class Userinfo
-{
-    public string username { set; get; }
-    public string id { set; get; }
-    public string isBlocked { set; get; }
 }
