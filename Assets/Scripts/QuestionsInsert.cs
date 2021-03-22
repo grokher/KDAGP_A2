@@ -24,7 +24,7 @@ public class QuestionsInsert : MonoBehaviour
         if (answer.text != "")
         {
             Debug.Log(answer.text);
-            correctAnswerText.text = "CorrectAnswer: " + EventSystem.current.currentSelectedGameObject.gameObject.GetComponentInChildren<Text>().text;
+            correctAnswerText.text = EventSystem.current.currentSelectedGameObject.gameObject.GetComponentInChildren<Text>().text;
         }
         else
         {
@@ -35,7 +35,8 @@ public class QuestionsInsert : MonoBehaviour
     {
         form = new WWWForm();
         form.AddField("Question", question.text);
-        //form.AddField("CorrectAnswer", correctAnswerText.text);
+        form.AddField("CorrectAnswers", correctAnswerText.text);
+        form.AddField("QuestionID", 2);
         WWW w = new WWW(URL, form);
 
 
@@ -49,7 +50,7 @@ public class QuestionsInsert : MonoBehaviour
         {
             Debug.Log(w.text);
             question.text = "";
-            //answer.text = "";
+            answer.text = "";
         }
         w.Dispose();
     }
