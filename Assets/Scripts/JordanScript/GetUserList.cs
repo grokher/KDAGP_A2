@@ -44,7 +44,7 @@ public class GetUserList : MonoBehaviour
                 //picking up data from json file
                 List<Userinfo> userinfo = new List<Userinfo>();
                 userinfo = JsonConvert.DeserializeObject<List<Userinfo>>(w.text);
-
+                Debug.Log(w.text);
                 foreach (var user in userinfo)
                 {
                     scaleChange = new Vector3(1, 1, 1);

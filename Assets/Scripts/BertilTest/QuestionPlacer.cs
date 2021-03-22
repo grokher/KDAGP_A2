@@ -83,6 +83,7 @@ public class QuestionPlacer : MonoBehaviour
             PlaceObjectAtMouse(questionTypes[(qN - 1)]);
             placingText.SetActive(false);
             placeWindow = false;
+
         }
 
         qN = 0;
@@ -96,7 +97,11 @@ public class QuestionPlacer : MonoBehaviour
         if (Physics.Raycast(ray, out hitData, 1000))
         {
             worldPosition = hitData.point;
-            Instantiate(placeObj, worldPosition, rot);
+            GameObject newWindow = Instantiate(placeObj, worldPosition, rot);
+
+            newWindow.name = placeObj.name;
+
+            this.gameObject.GetComponent<DatatSaver>().SavePosition(newWindow.gameObject);
         }
     }
 }
