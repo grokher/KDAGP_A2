@@ -15,7 +15,7 @@ public class DropdownMenuManager : MonoBehaviour
 
     private void Start()
     {
-        QuestionBox.SetActive(false);
+        //QuestionBox.SetActive(false);
     }
     public void MenuButton()
     {
