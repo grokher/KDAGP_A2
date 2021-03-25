@@ -48,17 +48,18 @@ public class ImageDownload : MonoBehaviour
         {
             arrayRequest = new WWW(imgURL + "Images/Skyboxes/" + fileNames[i], null, headers);
             yield return arrayRequest;
-            CreateMaterial(arrayRequest, i);
+            CreateMaterial(arrayRequest, i, fileNames[i]);
         }
         materials.RemoveAt(materials.Count - 1);
         materialCountText.text = materials.Count.ToString();
     }
 
-    void CreateMaterial(WWW webReq, int imgNum)
+    void CreateMaterial(WWW webReq, int imgNum, string filename)
     {
         //Debug.Log(imgNum);
         materials.Add(new Material(Shader.Find("Skybox/Panoramic")));
         materials[imgNum].mainTexture = webReq.texture;
+        materials[imgNum].name = filename; 
 
 
         //tempmat[imgNum] = new Material(Shader.Find("Skybox/Panoramic"));
