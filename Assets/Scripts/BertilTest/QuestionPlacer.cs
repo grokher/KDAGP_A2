@@ -10,6 +10,7 @@ public class QuestionPlacer : MonoBehaviour
     public GameObject[] questionTypes;
     Quaternion rot;
     Vector3 worldPosition;
+    DatatSaver dataSaver;
 
     GameObject placingText;
 
@@ -23,6 +24,7 @@ public class QuestionPlacer : MonoBehaviour
 
     void Start()
     {
+        dataSaver = this.gameObject.GetComponent<DatatSaver>();
         rot = this.gameObject.transform.rotation;
         format = GameObject.Find("FormatSelecor").GetComponent<Dropdown>();
         sizeField = GameObject.Find("Questions").GetComponent<Slider>();
@@ -89,6 +91,23 @@ public class QuestionPlacer : MonoBehaviour
         qN = 0;
     }
 
+    public void InstantiateQuestion(string name, Transform position)
+    {
+        foreach (GameObject question in questionTypes)
+        {
+            if(question.name == name)
+            {
+                GameObject newWindow = Instantiate(question, position);
+                newWindow.transform.SetParent(null);
+
+
+                newWindow.name = question.name;
+
+                dataSaver.SavePosition(newWindow.gameObject);
+            }
+        }
+    }
+
     void PlaceObjectAtMouse(GameObject placeObj)
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -101,7 +120,7 @@ public class QuestionPlacer : MonoBehaviour
 
             newWindow.name = placeObj.name;
 
-            this.gameObject.GetComponent<DatatSaver>().SavePosition(newWindow.gameObject);
+            dataSaver.SavePosition(newWindow.gameObject);
         }
     }
 }
