@@ -8,7 +8,7 @@ using System.IO;
 public class UploadTest : MonoBehaviour
 {
 
-    public string FTPHost = "ftp://stamgroepa2%2540mediaenvormgeving.nl@mediaenvormgeving.nl/Images/Skyboxes";
+    public string FTPHost = "ftp://stamgroepa2%2540mediaenvormgeving.nl@mediaenvormgeving.nl/Upload/Images/Skyboxes/";
 
     public string FTPUserName = "stamgroepa2@mediaenvormgeving.nl";
 
