@@ -61,6 +61,8 @@ public class ImageDownload : MonoBehaviour
         materials[imgNum].mainTexture = webReq.texture;
         materials[imgNum].name = filename; 
 
+        //a
+
 
         //tempmat[imgNum] = new Material(Shader.Find("Skybox/Panoramic"));
         //tempmat[imgNum].mainTexture = webReq.texture;
