@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BlockUser : MonoBehaviour
+public class BlockToets : MonoBehaviour
 {
     public Button blockButton;
 
@@ -18,7 +18,7 @@ public class BlockUser : MonoBehaviour
         blockMessage.gameObject.SetActive(false);
     }*/
 
-    public void blockUser()
+    public void blockToets()
     {
         //blockMessage.gameObject.SetActive(true);
         blockButton.interactable = false;
@@ -35,15 +35,17 @@ public class BlockUser : MonoBehaviour
         form.AddField("username", username);
         form.AddField("blocked", blocked);
 
+        Debug.Log(username);
+        Debug.Log(blocked);
+
         WWW w = new WWW(Url, form);
 
         yield return w;
 
-        //Debug.Log(w.text);
+        Debug.Log(w.text);
 
         if (w.error != null)
         {
-
             Debug.Log("<color=red>" + w.error + "</color>");//error
         }
         else
