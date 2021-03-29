@@ -48,7 +48,7 @@ public class GetToetsList : MonoBehaviour
 
                         scaleChange = new Vector3(1, 1, 1);
 
-                        GameObject parent = GameObject.Find("ToetsContent");
+                        GameObject parent = GameObject.Find("Content");
                         //instanitiate and transforming scale so it's right
                         GameObject textMesh = Instantiate(textdata, parent.transform);
 
