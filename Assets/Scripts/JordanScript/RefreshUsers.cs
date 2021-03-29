@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Newtonsoft.Json;
+using System;
 using TMPro;
+using GetList;
 
 public class RefreshUsers : MonoBehaviour
 {
@@ -43,27 +44,36 @@ public class RefreshUsers : MonoBehaviour
             else
             {
                 //picking up data from json file
-                List<Userinfo> userinfo = new List<Userinfo>();
-                userinfo = JsonConvert.DeserializeObject<List<Userinfo>>(w.text);
-
-                foreach (var user in userinfo)
+                List<Userinfo> userinfo = new List<Userinfo>(); //Hebben jullie deze dan nog wel nodig?
+                if (w.text != "[]")
                 {
-                    scaleChange = new Vector3(1, 1, 1);
+                    string trimmedText = w.text.Remove(w.text.Length - 2, 2).Remove(0, 2);
 
-                    GameObject parent = GameObject.Find("Content");
-                    //instanitiate and transforming scale so it's right
-                    GameObject textMesh = Instantiate(textdata, parent.transform);
+                    string[] userinfoPieces = trimmedText.Split(new[] { "},{" }, StringSplitOptions.None);
+                    for (int i = 0; i < userinfoPieces.Length; i++)
+                    {
+                        Userinfo newUserInfo = new Userinfo(userinfoPieces[i]);
+                        userinfo.Add(newUserInfo);
 
-                    //textMesh.transform.SetParent(parent.transform);
+                        //Debug.Log(newUserInfo);
 
-                    textMesh.transform.localScale = scaleChange;
-                    //adding data to the text
+                        scaleChange = new Vector3(1, 1, 1);
 
-                    //textMesh.GetComponent<TextMeshProUGUI>().text = user.username + "  " + user.isBlocked;
-                    textMesh.GetComponentInChildren<TextMeshProUGUI>().text = user.username + "  " + user.isBlocked;
+                        GameObject parent = GameObject.Find("Content");
+                        //instanitiate and transforming scale so it's right
+                        GameObject textMesh = Instantiate(textdata, parent.transform);
 
-                    textMesh.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = user.isBlocked;
-                    textMesh.transform.GetChild(0).transform.GetChild(1).GetComponent<Text>().text = user.username;
+                        //textMesh.transform.SetParent(parent.transform);
+
+                        textMesh.transform.localScale = scaleChange;
+                        //adding data to the text
+
+                        //textMesh.GetComponent<TextMeshProUGUI>().text = user.username + "  " + user.isBlocked;
+                        textMesh.GetComponentInChildren<TextMeshProUGUI>().text = newUserInfo.username + "  " + newUserInfo.isBlocked;
+
+                        textMesh.transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().text = newUserInfo.isBlocked;
+                        textMesh.transform.GetChild(0).transform.GetChild(1).GetComponent<Text>().text = newUserInfo.username;
+                    }
                 }
             }
         }

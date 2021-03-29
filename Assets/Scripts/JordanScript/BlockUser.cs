@@ -29,6 +29,9 @@ public class BlockUser : MonoBehaviour
     {
         form = new WWWForm();
 
+        username = username.Substring(1, username.Length - 2);
+        blocked = blocked.Substring(1, blocked.Length - 2);
+
         form.AddField("username", username);
         form.AddField("blocked", blocked);
 
@@ -36,7 +39,7 @@ public class BlockUser : MonoBehaviour
 
         yield return w;
 
-        Debug.Log(w.text);
+        //Debug.Log(w.text);
 
         if (w.error != null)
         {

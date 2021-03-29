@@ -17,6 +17,8 @@ public class DetectMouse : MonoBehaviour
 
     public int loadDuration = 200;
 
+    public bool mouseOver;
+
     int loadingAmount;
 
     private void Start()
@@ -38,10 +40,20 @@ public class DetectMouse : MonoBehaviour
         {
             popUpWindow.GetComponent<Animator>().SetBool("open",false);
         }
+
+        if (mouseOver)
+        {
+            MouseOver();
+        }
+        else
+        {
+            MouseExit();
+        }
     }
 
-    private void OnMouseOver()
+    private void MouseOver()
     {
+        Debug.Log("Over");
         loadingWindow.SetActive(true);
 
         loadingBar.gameObject.SetActive(true);
@@ -52,7 +64,7 @@ public class DetectMouse : MonoBehaviour
         }
     }
 
-    private void OnMouseExit()
+    private void MouseExit()
     {
         loadingWindow.SetActive(false);
         loadingBar.gameObject.SetActive(false);
