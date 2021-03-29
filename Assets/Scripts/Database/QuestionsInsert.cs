@@ -36,7 +36,7 @@ public class QuestionsInsert : MonoBehaviour
         form = new WWWForm();
         form.AddField("Question", question.text);
         form.AddField("CorrectAnswers", correctAnswerText.text);
-        form.AddField("QuestionID", 2);
+        //form.AddField("ID", + 1);
         WWW w = new WWW(URL, form);
 
 
