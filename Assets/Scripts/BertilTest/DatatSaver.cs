@@ -38,7 +38,6 @@ public class DatatSaver : MonoBehaviour
 
     public void SaveData()
     {
-        //CleanLists();
 
         foreach (string mayoniase in rawObjectValues)
         {
