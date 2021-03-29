@@ -41,10 +41,15 @@ public class QuestionPlacer : MonoBehaviour
 
     public void Update()
     {
+        placingText.SetActive(placeWindow);
         if (placeWindow)
         {
-            placingText.SetActive(true);
+            
             OnClick();
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+            {
+                placeWindow = false;
+            }
         }
     }
 
@@ -83,7 +88,7 @@ public class QuestionPlacer : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0) && qN != 0)
         {
             PlaceObjectAtMouse(questionTypes[(qN - 1)]);
-            placingText.SetActive(false);
+            
             placeWindow = false;
 
         }
@@ -115,12 +120,19 @@ public class QuestionPlacer : MonoBehaviour
 
         if (Physics.Raycast(ray, out hitData, 1000))
         {
-            worldPosition = hitData.point;
-            GameObject newWindow = Instantiate(placeObj, worldPosition, rot);
+            if (hitData.transform.gameObject.CompareTag("PlacableSurface"))
+            {
+                worldPosition = hitData.point;
+                GameObject newWindow = Instantiate(placeObj, worldPosition, rot);
 
-            newWindow.name = placeObj.name;
+                newWindow.name = placeObj.name;
 
-            dataSaver.SavePosition(newWindow.gameObject);
+                dataSaver.SavePosition(newWindow.gameObject);
+
+            } else
+            {
+                Debug.Log("INVAAALIIID");
+            }
         }
     }
 }

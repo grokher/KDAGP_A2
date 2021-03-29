@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Over : MonoBehaviour
 {
-    public DetectMouse dm;
+    public PopupOpenCollider ppc;
     
-    private void OnMouseOver()
-    {
-        dm.mouseOver = true;
-    }
-
     private void OnMouseExit()
     {
-        dm.mouseOver = false;
+        ppc.keepOpen = false;
     }
 }
