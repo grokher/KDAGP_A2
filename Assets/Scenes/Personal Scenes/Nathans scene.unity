@@ -1714,7 +1714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.15879709, y: 0}
   m_AnchorMax: {x: 0.8407971, y: 1}
-  m_AnchoredPosition: {x: 2.1399536, y: -151}
+  m_AnchoredPosition: {x: 2.1399536, y: -150.99998}
   m_SizeDelta: {x: -224, y: -126}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &374170110
@@ -3045,9 +3045,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materialCountText: {fileID: 1028932116}
   cubeMat: {fileID: 0}
+  contentObject: {fileID: 0}
+  buttonPrefab: {fileID: 0}
+  img: {fileID: 0}
+  urlPart: 0
   fileNames: []
-  tempmat: []
+  fileName: []
   materials: []
+  image: []
 --- !u!1 &734045600
 GameObject:
   m_ObjectHideFlags: 0
@@ -9302,7 +9307,7 @@ MonoBehaviour:
   rights: {fileID: 2008402089559438116}
   createButton: {fileID: 2008402088791169356}
   createMessage: {fileID: 2008402089898817497}
-  Url: http://www.mediaenvormgeving.nl/stamgroepa2/GetUserList.php
+  Url: http://www.mediaenvormgeving.nl/stamgroepa2/CreateUser.php
 --- !u!114 &2124801883
 MonoBehaviour:
   m_ObjectHideFlags: 0
