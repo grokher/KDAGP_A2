@@ -16,6 +16,7 @@ public class ImageDownload : MonoBehaviour
 
     [SerializeField] Material[] tempmat;
     [SerializeField] List<Material> materials = new List<Material>();
+    [SerializeField] List<Sprite> image = new List<Sprite>();
 
     private void Start()
     {
@@ -51,6 +52,7 @@ public class ImageDownload : MonoBehaviour
             CreateMaterial(arrayRequest, i, fileNames[i]);
         }
         materials.RemoveAt(materials.Count - 1);
+        image.RemoveAt(image.Count - 1);
         materialCountText.text = materials.Count.ToString();
     }
 
@@ -59,7 +61,12 @@ public class ImageDownload : MonoBehaviour
         //Debug.Log(imgNum);
         materials.Add(new Material(Shader.Find("Skybox/Panoramic")));
         materials[imgNum].mainTexture = webReq.texture;
-        materials[imgNum].name = filename; 
+        materials[imgNum].name = filename;
+
+        image.Add(Sprite.Create(webReq.textureNonReadable,
+                new Rect(0, 0, webReq.textureNonReadable.width, webReq.textureNonReadable.height),
+                new Vector2(0, 0)));
+        image[imgNum].name = filename;
 
         //a
 
