@@ -37,6 +37,11 @@ public class LoadingScenes : MonoBehaviour
     {
         SceneManager.LoadScene("Nathans scene");
     }
+
+    public void LoadFunnyScene()
+    {
+        SceneManager.LoadScene("Bram Scene");
+    }
     public void EnableCreateUI() 
     {
         createPanel.SetActive(true);

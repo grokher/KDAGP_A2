@@ -15,6 +15,7 @@ public class ImageDownload : MonoBehaviour
     public GameObject contentObject;
     public GameObject buttonPrefab;
     public Image img;
+    public SwitchSkybox changeSkybox;
 
     //dropdown menu for the download path
     public enum downloadPart
@@ -28,11 +29,16 @@ public class ImageDownload : MonoBehaviour
     [SerializeField] string[] fileName;
 
     WWW arrayRequest;
-    [SerializeField] List<Material> materials = new List<Material>();
-    [SerializeField] List<Sprite> image = new List<Sprite>();
+    public List<Material> materials = new List<Material>();
+    public List<Sprite> image = new List<Sprite>();
 
-    private void Start()
+    public void Start()
     {
+        foreach (Transform child in contentObject.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+
         fileName = new string[0];
         fileNames = new List<string>();
         materials = new List<Material>();
@@ -119,6 +125,7 @@ public class ImageDownload : MonoBehaviour
         image[imgNum].name = filename;
         GameObject buttonpref = Instantiate(buttonPrefab, contentObject.transform);
         buttonpref.GetComponent<Image>().sprite = image[imgNum];
+        buttonpref.GetComponent<Button>().onClick.AddListener(() => { changeSkybox.changeSkyBox(materials[imgNum]); });
 
         //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa holy fucking shit
 
