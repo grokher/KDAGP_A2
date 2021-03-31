@@ -7,15 +7,14 @@ using TMPro;
 public class PopupTextManager : MonoBehaviour
 {
     [SerializeField, Header("It's like al the texteses on the Popup :D")]
-    TextMeshProUGUI question;
-    [SerializeField]
-    TextMeshProUGUI number,bar,description, b1, b2, b3, b4;
-    [SerializeField]
-    Button[] buttons;
+    
+    public TextMeshProUGUI question;
+    public TextMeshProUGUI number, bar, description, b1, b2, b3, b4;
+    public Button[] buttons;
 
     private void Start()
     {
-        
+
     }
 
     public void WrongAwnser()

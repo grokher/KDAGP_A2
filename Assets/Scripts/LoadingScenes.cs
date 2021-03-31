@@ -8,6 +8,7 @@ public class LoadingScenes : MonoBehaviour
 {           
     public GameObject loggedInPanel;
     public GameObject createPanel;
+    GameObject blockPanel;
     Scene currentscene;
 
     private void Awake()
@@ -15,6 +16,9 @@ public class LoadingScenes : MonoBehaviour
         createPanel = GameObject.Find("CreateUserPanel");
         if (createPanel != null) 
         { createPanel.SetActive(false); }
+        blockPanel = GameObject.Find("BlockUserPanel");
+        if (blockPanel != null) 
+        { blockPanel.SetActive(false); }
     }
 
     private void Start()
@@ -40,6 +44,14 @@ public class LoadingScenes : MonoBehaviour
     public void DisableCreateUI()
     {
         createPanel.SetActive(false);
+    }
+     public void EnableBlockUI() 
+    {
+        blockPanel.SetActive(true);
+    }
+    public void DisableBlockUI()
+    {
+        blockPanel.SetActive(false);
     }
     void Update()
     {
