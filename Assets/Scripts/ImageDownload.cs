@@ -12,16 +12,34 @@ public class ImageDownload : MonoBehaviour
     string downloadPath;
     public Text materialCountText;
     public Material cubeMat;
-    [SerializeField] string[] fileNames;
+    public GameObject contentObject;
+    public GameObject buttonPrefab;
+    public Image img;
 
-    [SerializeField] Material[] tempmat;
+    //dropdown menu for the download path
+    public enum downloadPart
+    {
+        Images,
+        Skyboxes
+    }
+    public downloadPart urlPart;
+
+    [SerializeField] List<string> fileNames;
+    [SerializeField] string[] fileName;
+
+    WWW arrayRequest;
     [SerializeField] List<Material> materials = new List<Material>();
     [SerializeField] List<Sprite> image = new List<Sprite>();
 
     private void Start()
     {
+        fileName = new string[0];
+        fileNames = new List<string>();
+        materials = new List<Material>();
+        image = new List<Sprite>();
         CreateArray();
     }
+
 
     public void CreateArray()
     {
@@ -30,51 +48,79 @@ public class ImageDownload : MonoBehaviour
 
     IEnumerator StartRequest()
     {
+        // creates a form that allows you to send data to a php file with headers
         WWWForm formHeaders = new WWWForm();
         var headers = formHeaders.headers;
         headers["Access-Control-Allow-Origin"] = "http://www.mediaenvormgeving.nl";
 
         string imgURL = "http://www.mediaenvormgeving.nl/stamgroepa2/Upload/";
-        WWW arrayRequest = new WWW(imgURL + "download2.php", null, headers);
-        
+        string imgURL2 = " ";
+
+        // selects the files to download based on path set in the editor
+        if (urlPart == downloadPart.Skyboxes)
+        {
+            arrayRequest = new WWW(imgURL + "download2.php", null, headers);
+        }
+
+        else if (urlPart == downloadPart.Images)
+        {
+            arrayRequest = new WWW(imgURL + "download3.php", null, headers);
+        }
 
 
 
+        // waits until the request is finished
         yield return arrayRequest;
 
+        // splits the array of the request so the urls can be properly read
         Debug.Log(arrayRequest.text);
-        fileNames = arrayRequest.text.Split('|');
-        Debug.Log(fileNames.Length);
-        for (int i = 0; i < fileNames.Length; i++)
+        fileName = arrayRequest.text.Split('|');
+        fileNames = new List<string>(fileName);
+
+        // removes the last item from the list of URLS as its always empty
+        fileNames.RemoveAt(fileNames.Count - 1);
+        Debug.Log(fileNames.Count);
+
+        if (urlPart == downloadPart.Skyboxes)
         {
-            arrayRequest = new WWW(imgURL + "Images/Skyboxes/" + fileNames[i], null, headers);
+            imgURL2 = "Images/Skyboxes/";
+        }
+        else if (urlPart == downloadPart.Images)
+        {
+            imgURL2 = "Images/Images/";
+        }
+
+        // loops and downloads the files from the webserver
+        for (int i = 0; i < fileNames.Count; i++)
+        {
+            arrayRequest = new WWW(imgURL + imgURL2 + fileNames[i], null, headers);
             yield return arrayRequest;
             CreateMaterial(arrayRequest, i, fileNames[i]);
         }
-        materials.RemoveAt(materials.Count - 1);
-        image.RemoveAt(image.Count - 1);
-        materialCountText.text = materials.Count.ToString();
     }
 
     void CreateMaterial(WWW webReq, int imgNum, string filename)
     {
         //Debug.Log(imgNum);
-        materials.Add(new Material(Shader.Find("Skybox/Panoramic")));
-        materials[imgNum].mainTexture = webReq.texture;
-        materials[imgNum].name = filename;
 
+        // converts images from the skybox folder into skyboxes
+        if (urlPart == downloadPart.Skyboxes)
+        {
+            materials.Add(new Material(Shader.Find("Skybox/Panoramic")));
+            materials[imgNum].mainTexture = webReq.texture;
+            materials[imgNum].name = filename;
+        }
+
+
+        // converts images into sprites for buttons and other images
         image.Add(Sprite.Create(webReq.textureNonReadable,
                 new Rect(0, 0, webReq.textureNonReadable.width, webReq.textureNonReadable.height),
                 new Vector2(0, 0)));
         image[imgNum].name = filename;
+        GameObject buttonpref = Instantiate(buttonPrefab, contentObject.transform);
+        buttonpref.GetComponent<Image>().sprite = image[imgNum];
 
-        //a
-
-
-        //tempmat[imgNum] = new Material(Shader.Find("Skybox/Panoramic"));
-        //tempmat[imgNum].mainTexture = webReq.texture;
-
-        //materials.Add(tempmat[imgNum]);
+        //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa holy fucking shit
 
     }
 
