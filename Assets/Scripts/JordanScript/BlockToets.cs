@@ -22,7 +22,7 @@ public class BlockToets : MonoBehaviour
     {
         //blockMessage.gameObject.SetActive(true);
         blockButton.interactable = false;
-        StartCoroutine(CreateUser(UserSelect.username, UserSelect.blocked));
+        StartCoroutine(CreateUser(ToetsSelect.username, ToetsSelect.blocked));
     }
 
     IEnumerator CreateUser(string username, string blocked)

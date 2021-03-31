@@ -329,8 +329,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f8e1125fbcfdc43be7ced1e5151096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textdata: {fileID: 6749875940619388658, guid: d3023ec88eddeb547b361f3797dc3a77,
+  textdata: {fileID: 3031809284316175092, guid: 80ae2b2585023604297f95469c962b0c,
     type: 3}
+  Content: Content
   Url: http://www.mediaenvormgeving.nl/stamgroepa2/GetToetsList.php
 --- !u!114 &126522560
 MonoBehaviour:
@@ -587,6 +588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textdata: {fileID: 6749875940619388658, guid: d3023ec88eddeb547b361f3797dc3a77,
     type: 3}
+  Content: 
   Url: http://www.mediaenvormgeving.nl/stamgroepa2/GetToetsList.php
 --- !u!114 &285878940
 MonoBehaviour:
@@ -984,7 +986,7 @@ GameObject:
   - component: {fileID: 447021515}
   - component: {fileID: 447021514}
   m_Layer: 5
-  m_Name: Content
+  m_Name: ToetsContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1587,7 +1589,7 @@ GameObject:
   - component: {fileID: 851941467}
   - component: {fileID: 851941466}
   m_Layer: 5
-  m_Name: ToetsContent
+  m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2312,7 +2314,7 @@ GameObject:
   - component: {fileID: 1273800615}
   - component: {fileID: 1273800614}
   m_Layer: 5
-  m_Name: Questions
+  m_Name: QuestionsRow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2524,7 +2526,7 @@ GameObject:
   - component: {fileID: 1297565477}
   - component: {fileID: 1297565476}
   m_Layer: 5
-  m_Name: Content
+  m_Name: QuestionsContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4342,7 +4344,7 @@ GameObject:
   - component: {fileID: 2137605107}
   - component: {fileID: 2137605106}
   m_Layer: 5
-  m_Name: Toets
+  m_Name: ToetsRow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4497,7 +4499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   URL: http://www.mediaenvormgeving.nl/stamgroepa2/GetToetsList.php
-  textdata: {fileID: 6749875940619388658, guid: 65115d6c7637bed4ba3c49ec0954c6d5,
+  textdata: {fileID: 3031809284316175092, guid: 80ae2b2585023604297f95469c962b0c,
     type: 3}
 --- !u!114 &2141276922
 MonoBehaviour:

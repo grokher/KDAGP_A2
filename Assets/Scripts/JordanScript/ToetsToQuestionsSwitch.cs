@@ -14,12 +14,23 @@ public class ToetsToQuestionsSwitch : MonoBehaviour
 
     public void onSelectClick()
     {
-        ToetsCanvas.SetActive(false);
         QuestionCanvas.SetActive(true);
+        GameObject parent = GameObject.Find("ToetsContent");
+        GameObject textMesh = Instantiate(ToetsSelect.toets, parent.transform);
+        textMesh.name = "Toets";
+        ToetsCanvas.SetActive(false);
     }
 
     public void back()
     {
+        foreach (GameObject clone in GameObject.FindObjectsOfType(typeof(GameObject)))
+        {
+            if (clone.name == "Toets")
+            {
+                Destroy(clone);
+            }
+        }
+
         ToetsCanvas.SetActive(true);
         QuestionCanvas.SetActive(false);
     }
