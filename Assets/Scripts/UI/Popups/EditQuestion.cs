@@ -19,7 +19,10 @@ public class EditQuestion : MonoBehaviour
     private void Start()
     {
         editWindow = GameObject.Find("Question Box Teacher");
+    }
 
+    private void SetObjects()
+    {
         question = ppM.question;
         number = ppM.number;
         bar = ppM.bar;
@@ -29,6 +32,11 @@ public class EditQuestion : MonoBehaviour
         b3 = ppM.b3;
         b4 = ppM.b4;
         buttons = ppM.buttons;
+    }
+
+    public void SetFields()
+    {
+
     }
 
     public void WindowSet(bool set)
