@@ -8,7 +8,7 @@ public class LoadingScenes : MonoBehaviour
 {           
     public GameObject loggedInPanel;
     public GameObject createPanel;
-    GameObject blockPanel;
+    public GameObject blockPanel;
     Scene currentscene;
 
     private void Awake()
@@ -57,6 +57,15 @@ public class LoadingScenes : MonoBehaviour
     public void DisableBlockUI()
     {
         blockPanel.SetActive(false);
+    }
+    public void LoadBlockingScene()
+    {
+        SceneManager.LoadScene("BlockUser");
+    }
+
+    public void LoadMenuScene()
+    {
+        SceneManager.LoadScene("StartMenu");
     }
     void Update()
     {
