@@ -1087,7 +1087,7 @@ RectTransform:
   m_Children:
   - {fileID: 63220435397221819}
   m_Father: {fileID: 3795972866985835303}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1204,6 +1204,7 @@ Transform:
   m_Children:
   - {fileID: 1808803153646570213}
   - {fileID: 1808803155623660124}
+  - {fileID: 929650701440188982}
   - {fileID: 6858347935623849378}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1380,12 +1381,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3810922526011594159}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.3460668, y: 0.8659112, z: -2410}
+  m_LocalScale: {x: 0.53418803, y: 0.53418803, z: 726.6824}
   m_Children: []
-  m_Father: {fileID: 3795972866985835303}
-  m_RootOrder: 1
+  m_Father: {fileID: 1215162304246043920}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4602439151310128015
 MonoBehaviour:
@@ -1400,7 +1401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentObject: {fileID: 3580145415083017579}
-  sureWindow: {fileID: 0}
+  sureWindow: {fileID: 4088580393461890392}
 --- !u!1 &4088580393461890392
 GameObject:
   m_ObjectHideFlags: 0
@@ -1430,7 +1431,6 @@ RectTransform:
   m_LocalScale: {x: 106.83761, y: 106.83761, z: 726.6824}
   m_Children:
   - {fileID: 4015510892642848490}
-  - {fileID: 929650701440188982}
   - {fileID: 5664338883363089398}
   - {fileID: 3611802052393884385}
   m_Father: {fileID: 6858347935623849378}
@@ -2251,7 +2251,7 @@ RectTransform:
   - {fileID: 6858347935576103600}
   - {fileID: 3795972866985835303}
   m_Father: {fileID: 1215162304246043920}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2616,7 +2616,7 @@ RectTransform:
   m_Children:
   - {fileID: 321584859336651633}
   m_Father: {fileID: 3795972866985835303}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
