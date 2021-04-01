@@ -1714,7 +1714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.15879709, y: 0}
   m_AnchorMax: {x: 0.8407971, y: 1}
-  m_AnchoredPosition: {x: 2.1399536, y: -150.99998}
+  m_AnchoredPosition: {x: 2.1399536, y: -151}
   m_SizeDelta: {x: -224, y: -126}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &374170110
@@ -3048,6 +3048,7 @@ MonoBehaviour:
   contentObject: {fileID: 0}
   buttonPrefab: {fileID: 0}
   img: {fileID: 0}
+  changeSkybox: {fileID: 0}
   urlPart: 0
   fileNames: []
   fileName: []
@@ -9320,8 +9321,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4f8e1125fbcfdc43be7ced1e5151096, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textdata: {fileID: 0}
-  Url: 
+  textdata: {fileID: 6749875940619388658, guid: d3023ec88eddeb547b361f3797dc3a77,
+    type: 3}
+  Url: http://www.mediaenvormgeving.nl/stamgroepa2/GetUserList.php
 --- !u!224 &2008402088657575542
 RectTransform:
   m_ObjectHideFlags: 0
