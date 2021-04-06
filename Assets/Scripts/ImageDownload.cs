@@ -32,7 +32,7 @@ public class ImageDownload : MonoBehaviour
     public List<Material> materials = new List<Material>();
     public List<Sprite> image = new List<Sprite>();
 
-    public void Start()
+    public void OnEnable()
     {
         foreach (Transform child in contentObject.transform)
         {

@@ -9,7 +9,9 @@ public class LoadingScenes : MonoBehaviour
     public GameObject loggedInPanel;
     public GameObject createPanel;
     public GameObject blockPanel;
+    public GameObject uploadPanel;
     Scene currentscene;
+    bool menuState = false;
 
     private void Awake()
     {
@@ -45,6 +47,11 @@ public class LoadingScenes : MonoBehaviour
     public void EnableCreateUI() 
     {
         createPanel.SetActive(true);
+    }
+    public void TogglePhotoUI()
+    {
+        menuState = !menuState;
+        uploadPanel.SetActive(menuState);
     }
     public void DisableCreateUI()
     {

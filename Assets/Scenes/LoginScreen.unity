@@ -1521,7 +1521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1300912890
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2512,6 +2512,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loggedInPanel: {fileID: 723132935}
   createPanel: {fileID: 0}
+  blockPanel: {fileID: 0}
+  uploadPanel: {fileID: 0}
 --- !u!114 &2141276922
 MonoBehaviour:
   m_ObjectHideFlags: 0
