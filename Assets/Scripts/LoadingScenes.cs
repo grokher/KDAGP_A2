@@ -90,6 +90,6 @@ public class LoadingScenes : MonoBehaviour
     IEnumerator Load()
     {
         yield return new WaitForSeconds(3);
-        SceneManager.LoadScene("Nathans scene");
+        SceneManager.LoadScene("StartMenu");
     }
 }
