@@ -13,9 +13,12 @@ public class QuestionsInsert : MonoBehaviour
     WWWForm form;
 
 
-    public void idk()
+    public void SaveQuestion()
     {
-        StartCoroutine(GetUsersList());
+        if (question != null && answer != null)
+            StartCoroutine(GetUsersList());
+        else
+            Debug.Log("Insert a question first");
     }
 
     public void CorrectAnswer()
@@ -24,11 +27,12 @@ public class QuestionsInsert : MonoBehaviour
         if (answer.text != "")
         {
             Debug.Log(answer.text);
-            correctAnswerText.text = EventSystem.current.currentSelectedGameObject.gameObject.GetComponentInChildren<Text>().text;
+            correctAnswerText.text = EventSystem.current.currentSelectedGameObject.gameObject.GetComponentInChildren<Text>().text + "\n" + answer.text;
         }
         else
         {
             Debug.Log("Error, no answer given.");
+            correctAnswerText.text = "Vul een antwoord in";
         }
     }
 
