@@ -9,11 +9,7 @@ public class MoveButton : MonoBehaviour
 
     int currentSkyBoxNext = 0;
     int currentSkyBoxPrevious;
-
-    private void Update()
-    {
-        Debug.Log(currentSkyBoxNext);
-    }
+    
     public void moveToNextArea()
     {
         
