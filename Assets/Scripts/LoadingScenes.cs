@@ -15,6 +15,7 @@ public class LoadingScenes : MonoBehaviour
 
     private void Awake()
     {
+        uploadPanel.SetActive(false);
         createPanel = GameObject.Find("CreateUserPanel");
         if (createPanel != null) 
         { createPanel.SetActive(false); }
