@@ -78,9 +78,10 @@ public class LoadingScenes : MonoBehaviour
     {
         if (currentscene.name == ("LoginScreen"))
         {
-            if (loggedInPanel.activeInHierarchy == true)
+            Server sS = GameObject.Find("GameController").GetComponent<Server>();
+            if (sS.loggedIn == true)
             {
-                StartCoroutine(Load());
+                SceneManager.LoadScene("StartMenu");
             }
         }
 
@@ -90,6 +91,5 @@ public class LoadingScenes : MonoBehaviour
     IEnumerator Load()
     {
         yield return new WaitForSeconds(3);
-        SceneManager.LoadScene("StartMenu");
     }
 }

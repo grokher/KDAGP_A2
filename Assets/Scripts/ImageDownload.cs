@@ -5,6 +5,7 @@ using System;
 using System.Net;
 using System.IO;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class ImageDownload : MonoBehaviour
@@ -125,6 +126,7 @@ public class ImageDownload : MonoBehaviour
         image[imgNum].name = filename;
         GameObject buttonpref = Instantiate(buttonPrefab, contentObject.transform);
         buttonpref.GetComponent<Image>().sprite = image[imgNum];
+        buttonpref.transform.GetChild(0).GetComponent<TextMeshProUGUI>().SetText(filename);
 
         //adds an onclick function to the button to change the skybox
         buttonpref.GetComponent<Button>().onClick.AddListener(() => { changeSkybox.changeSkyBox(materials[imgNum]); });
