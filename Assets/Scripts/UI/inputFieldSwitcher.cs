@@ -15,16 +15,12 @@ public class inputFieldSwitcher : MonoBehaviour
             {                
                 if (fields[i].isActiveAndEnabled)
                 {
-                    Debug.Log((i).ToString());
                     if ((i + 2) > fields.Length)
                     {
-                        Debug.Log("Field is:" + (i + 2).ToString());
-                        Debug.Log("Length is:" + fields.Length.ToString());
                         fields[0].ActivateInputField();
                     }
                     if ((i + 2) <= fields.Length)
                     {
-                        Debug.Log("This is" + (i + 1).ToString());
                         fields[i + 1].ActivateInputField();
                     }
                     
