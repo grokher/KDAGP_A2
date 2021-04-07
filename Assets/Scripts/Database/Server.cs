@@ -19,13 +19,23 @@ public class Server : MonoBehaviour
 	// de opslag voor de data die we via de webrequest sturen
 	WWWForm form;
 
-	public void OnLoginButtonClicked ()
+    public bool loggedIn = false;
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return))
+        {
+            StartCoroutine(Login());
+        }
+    }
+
+    public void OnLoginButtonClicked ()
 	{
 		loginButton.interactable = false;
 		StartCoroutine (Login ());
-	}
+    }
 
-	IEnumerator Login ()
+    IEnumerator Login ()
 	{
 		// Creëer een nieuw form met null data
 		form = new WWWForm ();
@@ -60,7 +70,7 @@ public class Server : MonoBehaviour
                 {
 					errorMessages.transform.parent.gameObject.SetActive(true);
 					errorMessages.text = "Je gebruikerscode of wachtwoord is niet juist";
-					Debug.Log("<color=red>"+w.text+"</color>");//error
+					//Debug.Log("<color=red>"+w.text+"</color>");//error
                     yield return new WaitForSeconds(5);
                     errorMessages.transform.parent.gameObject.SetActive(false);
                 }
@@ -68,15 +78,13 @@ public class Server : MonoBehaviour
                 {
 					errorMessages.transform.parent.gameObject.SetActive(true);
 					errorMessages.text = "De User is blocked";
-					Debug.Log("<color=red>" + w.text + "</color>");//error
+					//Debug.Log("<color=red>" + w.text + "</color>");//error
                     yield return new WaitForSeconds(5);
                     errorMessages.transform.parent.gameObject.SetActive(false);
                 }
 				else
                 {
-					//open het welkomst paneel
-					welcomePanel.SetActive (true);
-					user.text = username.text;
+                    loggedIn = true;
 					KeepInfo.JsonConvertor(w);
 				}
 			}
