@@ -17,6 +17,15 @@ public class inputFieldSwitcher : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
+            if (fields[1].isFocused)
+            {
+                focus = false;
+            }
+            else if (fields[0].isFocused)
+            {
+                focus = true;
+            }
+
             focus = !focus;
             if (focus)
             {
@@ -26,7 +35,7 @@ public class inputFieldSwitcher : MonoBehaviour
             {
                 fields[1].ActivateInputField();
             }
-
         }
     }
+    
 }

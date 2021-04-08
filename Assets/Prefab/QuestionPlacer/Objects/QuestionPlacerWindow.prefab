@@ -2153,7 +2153,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 3237828619609565904}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.6666667
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4316,6 +4316,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Question Box Teacher
+      objectReference: {fileID: 0}
+    - target: {fileID: 1216210610099200485, guid: 499f82c8c53f1b94c904f15ae3c6101f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4184828041900633703, guid: 499f82c8c53f1b94c904f15ae3c6101f,
         type: 3}
