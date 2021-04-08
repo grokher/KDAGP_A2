@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class AddQuestionToToets : MonoBehaviour
 {
-    public Text createMessage;
+    public TextMeshProUGUI createMessage;
     public Button ToevoegenButton;
     public string Url;
     public static GameObject question;
     private GameObject toets;
     WWWForm form;
+
+    private void Start()
+    {
+        createMessage.gameObject.SetActive(false);
+    }
 
     public void AddQuestion()
     {
@@ -25,7 +31,9 @@ public class AddQuestionToToets : MonoBehaviour
         }
         catch
         {
-            Debug.LogError("No Question Selected");
+            createMessage.gameObject.SetActive(true);
+            createMessage.text = "Geen Question geselecteerd";
+            StartCoroutine("Remove");
         }
     }
 
@@ -74,5 +82,11 @@ public class AddQuestionToToets : MonoBehaviour
         ToevoegenButton.interactable = true;
 
         w.Dispose();
+    }
+
+    IEnumerator Remove()
+    {
+        yield return new WaitForSecondsRealtime(2f);
+        createMessage.gameObject.SetActive(false);
     }
 }

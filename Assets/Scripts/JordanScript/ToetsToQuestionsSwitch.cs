@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Threading.Tasks;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using toets;
-using System;
 using TMPro;
 
 public class ToetsToQuestionsSwitch : MonoBehaviour
@@ -12,6 +13,7 @@ public class ToetsToQuestionsSwitch : MonoBehaviour
     public GameObject QuestionCanvas;
     public GameObject ToetsToevoegenCanvas;
     public InputField Toetsnaam;
+    public TextMeshProUGUI CreateMessage;
 
     public GameObject ToetsPrefab;
     public GameObject QuestionPrefab;
@@ -23,6 +25,7 @@ public class ToetsToQuestionsSwitch : MonoBehaviour
     private void Start()
     {
         QuestionCanvas.SetActive(false);
+        CreateMessage.gameObject.SetActive(false);
     }
 
     public void onSelectClick()
@@ -41,7 +44,9 @@ public class ToetsToQuestionsSwitch : MonoBehaviour
         }
         catch
         {
-            Debug.LogError("No Toets Selected");
+            CreateMessage.gameObject.SetActive(true);
+            CreateMessage.text = "Geen Toets geselecteerd";
+            StartCoroutine("Remove");
         }
     }
 
@@ -132,6 +137,12 @@ public class ToetsToQuestionsSwitch : MonoBehaviour
             }
         }
         w.Dispose();
+    }
+
+    IEnumerator Remove()
+    {
+        yield return new WaitForSecondsRealtime(2f);
+        CreateMessage.gameObject.SetActive(false);
     }
 
     IEnumerator GetQuestionList()

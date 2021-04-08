@@ -16,7 +16,7 @@ public class CamRotation : MonoBehaviour
         {          
             x += Input.GetAxis("Mouse Y") * speed;
             x = Mathf.Clamp(x, -maxXAngle, maxXAngle);
-            y += Input.GetAxis("Mouse X") * speed;
+            y -= Input.GetAxis("Mouse X") * speed;
             transform.rotation = Quaternion.Euler(x, y, 0);
             Cursor.SetCursor(c2, Vector2.zero, CursorMode.ForceSoftware);
         }

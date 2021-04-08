@@ -35,14 +35,9 @@ public class BlockToets : MonoBehaviour
         form.AddField("username", username);
         form.AddField("blocked", blocked);
 
-        Debug.Log(username);
-        Debug.Log(blocked);
-
         WWW w = new WWW(Url, form);
 
         yield return w;
-
-        Debug.Log(w.text);
 
         if (w.error != null)
         {
@@ -60,7 +55,7 @@ public class BlockToets : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("<color=green>" + w.text + "</color>");
+                    //Debug.Log("<color=green>" + w.text + "</color>");
                 }
             }
         }
