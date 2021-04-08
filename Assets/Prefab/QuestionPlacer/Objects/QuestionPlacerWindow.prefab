@@ -2153,7 +2153,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 3237828619609565904}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.6666667
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3940,7 +3940,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Amount of questions
+  m_text: Aantal antwoorden
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4324,6 +4324,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4184828041900633703, guid: 499f82c8c53f1b94c904f15ae3c6101f,
         type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.030029297
+      objectReference: {fileID: 0}
+    - target: {fileID: 4184828041900633703, guid: 499f82c8c53f1b94c904f15ae3c6101f,
+        type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.4000244
       objectReference: {fileID: 0}
@@ -4356,6 +4361,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.3999939
+      objectReference: {fileID: 0}
+    - target: {fileID: 4184828043363525776, guid: 499f82c8c53f1b94c904f15ae3c6101f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.030029297
       objectReference: {fileID: 0}
     - target: {fileID: 4184828043717055381, guid: 499f82c8c53f1b94c904f15ae3c6101f,
         type: 3}
