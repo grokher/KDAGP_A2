@@ -57,7 +57,7 @@ public class Server : MonoBehaviour
         {
 			errorMessages.transform.parent.gameObject.SetActive(true);
 			errorMessages.text = "404 not found!";
-			Debug.Log("<color=red>"+w.error+"</color>");//error
+			//Debug.Log("<color=red>"+w.error+"</color>");//error
             yield return new WaitForSeconds(5);
             errorMessages.transform.parent.gameObject.SetActive(false);
         }

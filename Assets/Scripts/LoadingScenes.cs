@@ -6,29 +6,20 @@ using UnityEngine.UI;
 
 public class LoadingScenes : MonoBehaviour
 {           
-    public GameObject loggedInPanel;
     public GameObject createPanel;
     public GameObject blockPanel;
     public GameObject uploadPanel;
-    public GameObject questionBox;
-    public GameObject ButtonMenu;
     Scene currentscene;
     bool menuState = false;
 
     private void Awake()
     {
-        uploadPanel = GameObject.Find("Photo Downloader");
-        if(uploadPanel != null)
-        { uploadPanel.SetActive(false); }
         createPanel = GameObject.Find("CreateUserPanel");
         if (createPanel != null) 
         { createPanel.SetActive(false); }
         blockPanel = GameObject.Find("BlockUserPanel");
         if (blockPanel != null) 
         { blockPanel.SetActive(false); }
-        questionBox = GameObject.Find("QuestionBoxTeacher");
-        if(questionBox != null)
-        { questionBox.SetActive(false); }
     }
 
     private void Start()
@@ -55,22 +46,15 @@ public class LoadingScenes : MonoBehaviour
     public void EnableCreateUI() 
     {
         createPanel.SetActive(true);
-        ButtonMenu.SetActive(false);
     }
-    public void EnablePhotoUI()
+    public void TogglePhotoUI()
     {
-        uploadPanel.SetActive(true);
-        ButtonMenu.SetActive(false);
-    }
-    public void DisablePhotoUI()
-    {
-        uploadPanel.SetActive(false);
-        ButtonMenu.SetActive(true);
+        menuState = !menuState;
+        uploadPanel.SetActive(menuState);
     }
     public void DisableCreateUI()
     {
         createPanel.SetActive(false);
-        ButtonMenu.SetActive(true);
     }
      public void EnableBlockUI() 
     {
@@ -88,17 +72,6 @@ public class LoadingScenes : MonoBehaviour
     public void LoadMenuScene()
     {
         SceneManager.LoadScene("StartMenu");
-    }
-
-    public void EnableQuestionUI()
-    {
-        questionBox.SetActive(true);
-        ButtonMenu.SetActive(false);
-    }
-    public void DisableQuestionUI()
-    {
-        questionBox.SetActive(false);
-        ButtonMenu.SetActive(true);
     }
     void Update()
     {
