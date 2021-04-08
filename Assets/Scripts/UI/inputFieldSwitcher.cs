@@ -15,8 +15,10 @@ public class inputFieldSwitcher : MonoBehaviour
 
     void SwitchTab()
     {
+        //Tab check voor login om van field te wisselen
         if (Input.GetKeyDown(KeyCode.Tab))
         {
+            //Kijkt welk veld active is en geeft aan welke het active is
             if (fields[1].isFocused)
             {
                 focus = false;
@@ -25,8 +27,11 @@ public class inputFieldSwitcher : MonoBehaviour
             {
                 focus = true;
             }
+            //
 
             focus = !focus;
+
+            //Switched inputfield
             if (focus)
             {
                 fields[0].ActivateInputField();
@@ -35,6 +40,7 @@ public class inputFieldSwitcher : MonoBehaviour
             {
                 fields[1].ActivateInputField();
             }
+            //
         }
     }
     

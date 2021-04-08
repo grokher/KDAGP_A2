@@ -9,6 +9,7 @@ public class BillBoarding : MonoBehaviour
 
     Quaternion originalRotation;
 
+    //ngl copied van het internet om een billboard effect te hebben op de vragen.
     void Start()
     {
         cam = Camera.main;
@@ -20,4 +21,5 @@ public class BillBoarding : MonoBehaviour
         camTransform = cam.gameObject.transform;
         transform.rotation = camTransform.rotation * originalRotation;
     }
+    // Bertil btw :D
 }

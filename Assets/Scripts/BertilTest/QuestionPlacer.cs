@@ -53,6 +53,7 @@ public class QuestionPlacer : MonoBehaviour
         }
     }
 
+    //Retrospective had i manage ook wel public kunne zette.... MEH
     public void MakeQuestion()
     {
         ManageQuestionFormat();
@@ -60,6 +61,7 @@ public class QuestionPlacer : MonoBehaviour
 
     void ManageQuestionFormat()
     {
+        //Was eerst voordat ik slider gebruikte. Laat maar staan jic
         try
         {
             awnsers = (int)sizeField.value;
@@ -69,10 +71,12 @@ public class QuestionPlacer : MonoBehaviour
         {
             Debug.LogWarning("Hmmmm it seems some idiot isnt using A NUMBER WHAT THE FUCK YOU BUCKET");
         }
+        //
     }
 
     void OnClick()
     {
+        //Kijkt hoeveel antwoorden de vraag moet hebben en zet deze als de active placable
         if (awnsers == 2)
         {
             qN = 1;
@@ -92,6 +96,7 @@ public class QuestionPlacer : MonoBehaviour
             placeWindow = false;
 
         }
+        //
 
         qN = 0;
     }
