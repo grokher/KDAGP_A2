@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Personal Scenes/StartMenu.unity
     guid: 9d69ad34206eae041bd02dd12548ed07
   - enabled: 1
-    path: Assets/Scenes/Personal Scenes/Bertils Scene.unity
+    path: Assets/Scenes/Personal Scenes/Builder Scene.unity
     guid: 51cd9133a59851b4e96d74c17cddf7b8
   - enabled: 1
     path: Assets/Scenes/Personal Scenes/Nathans scene.unity
