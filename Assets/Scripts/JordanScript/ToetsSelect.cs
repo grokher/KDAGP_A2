@@ -9,6 +9,7 @@ public class ToetsSelect : MonoBehaviour
     public static string username;
     public static string blocked;
     public static GameObject toets;
+    public static string Questionname;
 
     // Update is called once per frame
     void Update()
@@ -51,12 +52,10 @@ public class ToetsSelect : MonoBehaviour
 
     public  void SelectToets()
     {
-        Debug.Log("presed");
         username = this.transform.GetChild(1).GetComponent<Text>().text;
         blocked = this.transform.GetChild(0).GetComponent<Text>().text;
         toets = this.gameObject.transform.parent.gameObject;
-
-        Debug.Log(toets.name);
+        Questionname = this.transform.GetChild(1).GetComponent<Text>().text;
         
         /*if (selected == true)
         {
