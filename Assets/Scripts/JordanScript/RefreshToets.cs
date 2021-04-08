@@ -3,24 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
-//using Newtonsoft.Json;
 using TMPro;
+using toets;
 
-public class GetToetsList : MonoBehaviour
+public class RefreshToets : MonoBehaviour
 {
-    public string URL;
+
     public GameObject textdata;
     private Vector3 scaleChange;
 
+    public string Url;
 
-    void Start()
+    // Start is called before the first frame update
+    public void refreshUsers()
     {
-        StartCoroutine(GetUsersList());
+        StartCoroutine(RefreshUser());
     }
 
-    IEnumerator GetUsersList()
+    IEnumerator RefreshUser()
     {
-        WWW w = new WWW(URL);
+
+        foreach (GameObject clone in GameObject.FindObjectsOfType(typeof(GameObject)))
+        {
+            if (clone.name == "Toets(Clone)")
+            {
+                Destroy(clone);
+            }
+        }
+
+        WWW w = new WWW(Url);
 
         yield return w;
 
@@ -66,50 +77,6 @@ public class GetToetsList : MonoBehaviour
                 }
             }
         }
-
         w.Dispose();
-    }
-
-    public class Toetsinfo
-    {
-        public string ToetsNaam { set; get; }
-        public string id { set; get; }
-        public string isBlocked { set; get; }
-
-
-        public Toetsinfo(string pJsonText)
-        {
-            string[] dataPairs = pJsonText.Split(',');
-
-            for (int i = 0; i < dataPairs.Length; i++)
-            {
-                string[] keyValuePair = dataPairs[i].Split(':');
-                Debug.Assert(keyValuePair.Length == 2);
-
-                string key = keyValuePair[0];
-                string value = keyValuePair[1];
-
-                switch (key)
-                {
-                    case "\"ToetsNaam\"":
-                        Debug.Log("Assigning username");
-                        ToetsNaam = value;
-                        break;
-                    case "\"id\"":
-                        Debug.Log("Assigning id");
-                        id = value;
-                        break;
-                    case "\"isBlocked\"":
-                        Debug.Log("Assigning isBlocked");
-                        isBlocked = value;
-                        break;
-                }
-            }
-        }
-
-        public override string ToString()
-        {
-            return $"username: {ToetsNaam}, id: {id}, isBlocked: {isBlocked}";
-        }
     }
 }

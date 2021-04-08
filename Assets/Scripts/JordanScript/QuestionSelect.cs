@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ToetsSelect : MonoBehaviour
+public class QuestionSelect : MonoBehaviour
 {
     private bool selected;
     public static string username;
@@ -55,7 +55,7 @@ public class ToetsSelect : MonoBehaviour
         username = this.transform.GetChild(1).GetComponent<Text>().text;
         blocked = this.transform.GetChild(0).GetComponent<Text>().text;
         toets = this.gameObject.transform.parent.gameObject;
-        Questionname = this.transform.GetChild(1).GetComponent<Text>().text;
+        AddQuestionToToets.question = this.transform.GetChild(1).gameObject;
         
         /*if (selected == true)
         {
