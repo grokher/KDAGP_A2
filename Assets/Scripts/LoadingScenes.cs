@@ -17,7 +17,9 @@ public class LoadingScenes : MonoBehaviour
 
     private void Awake()
     {
-        uploadPanel.SetActive(false);
+        uploadPanel = GameObject.Find("Photo Downloader");
+        if(uploadPanel != null)
+        { uploadPanel.SetActive(false); }
         createPanel = GameObject.Find("CreateUserPanel");
         if (createPanel != null) 
         { createPanel.SetActive(false); }
