@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class LoadingScenes : MonoBehaviour
 {           
-    public GameObject loggedInPanel;
     public GameObject createPanel;
     public GameObject blockPanel;
     public GameObject uploadPanel;
@@ -15,7 +14,6 @@ public class LoadingScenes : MonoBehaviour
 
     private void Awake()
     {
-        uploadPanel.SetActive(false);
         createPanel = GameObject.Find("CreateUserPanel");
         if (createPanel != null) 
         { createPanel.SetActive(false); }

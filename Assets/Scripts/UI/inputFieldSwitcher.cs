@@ -6,27 +6,27 @@ using UnityEngine.UI;
 public class inputFieldSwitcher : MonoBehaviour
 {
     [SerializeField]InputField[] fields;
-    // Update is called once per frame
+    bool focus;
+
     void Update()
+    {
+        SwitchTab();
+    }
+
+    void SwitchTab()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            for (int i = 0; i < fields.Length; i++)
-            {                
-                if (fields[i].isActiveAndEnabled)
-                {
-                    if ((i + 2) > fields.Length)
-                    {
-                        fields[0].ActivateInputField();
-                    }
-                    if ((i + 2) <= fields.Length)
-                    {
-                        fields[i + 1].ActivateInputField();
-                    }
-                    
-                    return;
-                }
+            focus = !focus;
+            if (focus)
+            {
+                fields[0].ActivateInputField();
             }
-        }    
+            else
+            {
+                fields[1].ActivateInputField();
+            }
+
+        }
     }
 }
