@@ -3206,7 +3206,7 @@ GameObject:
   - component: {fileID: 1267293810}
   - component: {fileID: 1267293809}
   m_Layer: 5
-  m_Name: CreateMessage
+  m_Name: ToetsMessage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5335,7 +5335,7 @@ GameObject:
   - component: {fileID: 1989930845}
   - component: {fileID: 1989930844}
   m_Layer: 5
-  m_Name: ToetsMessage
+  m_Name: QuestionMessage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
