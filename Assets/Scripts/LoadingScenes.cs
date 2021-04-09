@@ -25,7 +25,7 @@ public class LoadingScenes : MonoBehaviour
         blockPanel = GameObject.Find("BlockUserPanel");
         if (blockPanel != null) 
         { blockPanel.SetActive(false); }
-        questionBox = GameObject.Find("QuestionBoxTeacher");
+        questionBox = GameObject.Find("Question Box Teacher");
         if (questionBox != null)
         { questionBox.SetActive(false); }
     }

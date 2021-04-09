@@ -17,6 +17,7 @@ public class DropdownMenuManager : MonoBehaviour
     {
         //QuestionBox.SetActive(false);
     }
+    //opens or closes the Slide Menu
     public void MenuButton()
     {
         isOpen = !isOpen;
@@ -58,6 +59,7 @@ public class DropdownMenuManager : MonoBehaviour
         }
     }
     */
+    //Changes the scene based on the name of the scene you typed in
     public void ChangeScene(string name)
     {
         SceneManager.LoadScene(name);
